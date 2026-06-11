@@ -1,0 +1,6 @@
+{
+  "name": "arkan-central",
+  "scripts": {
+    "dev": "npm --prefix \"D:\\Personal Work\\Projects\\Arkan Central Calude\\arkan-hub\" run dev"
+  }
+}
