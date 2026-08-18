@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { HUBS, FEATURED, EVERYDAY_GUIDES, DOWNLOADS, QUICK_CHIPS, WHY_POINTS } from '../data/content'
-import { SearchIcon, FileIcon, DownloadIcon, BookIcon, DeviceIcon, ToolsIcon, AppleIcon, PlayIcon, KaabaIcon, BookOpenIcon, FamilyIcon, PlaneIcon, ScrollIcon, CompassIcon, HeartIcon, BabyIcon, RingIcon, MapPinIcon, QuranIcon, ChecklistIcon } from '../components/Icons'
+import { SearchIcon, FileIcon, DownloadIcon, BookIcon, DeviceIcon, ToolsIcon, AppleIcon, PlayIcon, KaabaIcon, BookOpenIcon, FamilyIcon, PlaneIcon, ScrollIcon, CompassIcon, HeartIcon, BabyIcon, RingIcon, MapPinIcon, QuranIcon, ChecklistIcon, DuaIcon } from '../components/Icons'
+import Logo from '../components/Logo'
 
 const HUB_ICONS = {
   'core-pillars': KaabaIcon,
@@ -9,9 +10,10 @@ const HUB_ICONS = {
   'relationships-family': FamilyIcon,
   'travel-heritage': PlaneIcon,
   'history-prophetic-stories': ScrollIcon,
-  'hadith': BookOpenIcon,
+  'hadith': QuranIcon,
   'health-islam': HeartIcon,
   'umrah-companion': CompassIcon,
+  'dua': DuaIcon,
 }
 
 const getResourceIcon = (slug, category) => {
@@ -62,6 +64,9 @@ export default function Home() {
   return (
     <>
       <section className="arkan-hero">
+        <div className="hero-logo">
+          <Logo size={96} />
+        </div>
         <p className="hero-eyebrow">Islamic knowledge, structured</p>
         <h1 className="hero-title">Arkan Directory Hub</h1>
         <div className="hero-rule" aria-hidden="true" />

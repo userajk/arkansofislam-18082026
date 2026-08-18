@@ -6,17 +6,14 @@ export const HUBS = [
     num: '01',
     slug: 'core-pillars',
     title: 'The 5 Pillars',
-    desc: 'Guides, tools, and checklists for Salah, Zakat, Sawm, Hajj, Umrah, and more.',
+    desc: 'Guides, tools, and checklists for Salah, Zakat, Sawm, Hajj, and more.',
     intro: 'The foundations of worship, explained clearly. Each topic below opens a practical guide with steps, tools, and answers to common questions.',
     items: [
       { title: 'Salah', desc: 'Step-by-step prayer guides, prayer times, and common questions.' },
       { title: 'Zakat', desc: 'Understand nisab, calculate what is due, and learn who is eligible.' },
       { title: 'Sawm', desc: 'Fasting essentials for Ramadan and voluntary fasts through the year.' },
       { title: 'Hajj', desc: 'A complete walkthrough of the pilgrimage, from ihram to tawaf.' },
-      { title: 'Umrah', desc: 'Plan and perform Umrah with clear, practical steps.' },
       { title: 'Shahadah', desc: 'The declaration of faith and what it means in daily life.' },
-      { title: 'Wudu', desc: 'How to perform ablution correctly, with common mistakes to avoid.' },
-      { title: 'Dua after Salah', desc: 'A collection of authentic supplications to recite after prayer.' },
     ],
   },
   {
@@ -30,7 +27,7 @@ export const HUBS = [
       { title: 'Ramadan Guide', desc: 'Prepare for the month of fasting, prayer, and reflection.' },
       { title: 'Jummah Guide', desc: 'The etiquette and virtues of the Friday prayer.' },
       { title: 'Janazah Guide', desc: 'Funeral rites explained step by step for families.' },
-      { title: 'Daily Duas', desc: 'Supplications for morning, evening, and everything between.' },
+      { title: 'Wudu', desc: 'How to perform ablution correctly, with common mistakes to avoid.' },
       { title: 'Islamic Etiquette', desc: 'Adab for daily interactions, food, and the home.' },
       { title: 'Halal Lifestyle', desc: 'Practical guidance on halal food, finance, and living.' },
       { title: 'Islamic Finance Basics', desc: 'Riba-free banking, saving, and spending fundamentals.' },
@@ -48,20 +45,18 @@ export const HUBS = [
       { title: 'Mahr Template', desc: 'A simple template for documenting the marriage gift.' },
       { title: 'Parenting Playbooks', desc: 'Raising children with faith, patience, and purpose.' },
       { title: 'Kids Prayer Reward Chart', desc: 'A printable chart to encourage young ones to pray.' },
-      { title: 'Family Dua Collection', desc: 'Duas for spouses, parents, and children.' },
     ],
   },
   {
     num: '04',
     slug: 'travel-heritage',
     title: 'Travel & Heritage',
-    desc: 'Halal travel guides, mosque directories, landmarks, and travel duas.',
+    desc: 'Halal travel guides, mosque directories, landmarks, and heritage sites.',
     intro: 'Travel with confidence — find mosques, plan halal trips, and keep up worship wherever you are.',
     items: [
       { title: 'Mosque Directory', desc: 'Find mosques and prayer spaces near you and abroad.' },
       { title: 'Islamic Landmarks', desc: 'Historic sites and heritage destinations worth visiting.' },
       { title: 'Halal City Guides', desc: 'Food, prayer, and travel notes for major cities.' },
-      { title: 'Travel Dua Vault', desc: 'Duas for journeys, arrival, and a safe return.' },
       { title: 'Family Travel Tips', desc: 'Travelling with children while keeping up worship.' },
       { title: 'Visitor Etiquette', desc: 'Respectful conduct when visiting mosques and holy sites.' },
     ],
@@ -112,18 +107,32 @@ export const HUBS = [
     ],
   },
   {
-    num: '08',
-    slug: 'umrah-companion',
-    title: 'Umrah Companion',
-    desc: 'Everything for your Umrah — steps, duas, packing, and visiting the two holy cities.',
-    intro: 'A complete companion for your journey — from preparing ihram at home to the final tawaf, with guides for Makkah and Madinah.',
+    num: "08",
+    slug: "umrah-companion",
+    title: "Umrah Companion",
+    desc: "Everything for your Umrah — steps, packing, and visiting the two holy cities.",
+    intro: "A complete companion for your journey — from preparing ihram at home to the final tawaf, with guides for Makkah and Madinah.",
     items: [
-      { title: 'Umrah Step-by-Step', desc: 'The full rite in order — ihram, tawaf, sai, and exiting ihram.' },
-      { title: 'Ihram Essentials', desc: 'What to wear, what to avoid, and the intentions to make.' },
-      { title: 'Duas for Umrah', desc: 'Supplications for travel, tawaf, sai, and drinking Zamzam.' },
-      { title: 'Makkah Visitor Guide', desc: 'The Haram, etiquette, and practical tips for your stay.' },
-      { title: 'Madinah Visitor Guide', desc: 'Visiting the Prophet’s Mosque with respect and ease.' },
-      { title: 'Umrah Packing Checklist', desc: 'Everything to pack, printable before you fly.' },
+      { title: "Umrah Step-by-Step", desc: "The full rite in order — ihram, tawaf, sai, and exiting ihram." },
+      { title: "Ihram Essentials", desc: "What to wear, what to avoid, and the intentions to make." },
+      { title: "Makkah Visitor Guide", desc: "The Haram, etiquette, and practical tips for your stay." },
+      { title: "Madinah Visitor Guide", desc: "Visiting the Prophet’s Mosque with respect and ease." },
+      { title: "Umrah Packing Checklist", desc: "Everything to pack, printable before you fly." },
+    ],
+  },
+  {
+    num: "09",
+    slug: "dua",
+    title: "Dua",
+    desc: "Supplications and prayers for every moment, situation, and life stage.",
+    intro: "Dua is the conversation with Allah. Here you will find authentic supplications for prayer, travel, family, morning, evening, and all of life’s moments — in Arabic, transliteration, and multiple languages.",
+    items: [
+      { title: "Daily Duas", desc: "Supplications for morning, evening, and everything between." },
+      { title: "Dua with Salah", desc: "Authentic supplications to recite with Salah, including Dua Qunoot for Witr prayer." },
+      { title: "Travel Duas", desc: "Duas for journeys, arrival, safe travel, and returning home." },
+      { title: "Family Duas", desc: "Supplications for spouses, parents, children, and loved ones." },
+      { title: "Duas for Umrah", desc: "Supplications specific to tawaf, sai, and the holy cities." },
+      { title: "Duas for Specific Situations", desc: "Prayers for healing, grief, success, protection, and life challenges." },
     ],
   },
 ]
@@ -163,7 +172,7 @@ export const WHY_POINTS = [
 ]
 
 export const DIRECTORY_ITEMS = HUBS.flatMap(h =>
-  h.items.map(i => ({ ...i, hub: h.title, hubSlug: h.slug, slug: slugify(i.title) }))
+  h.items.map(i => ({ ...i, hub: h.title, hubSlug: h.slug, slug: i.slug || slugify(i.title) }))
 )
 
 const buildResourceMap = () => {
@@ -177,6 +186,8 @@ const buildResourceMap = () => {
   for (const d of DOWNLOADS) {
     if (!map[d.slug]) map[d.slug] = { title: d.title, desc: d.desc, category: 'Downloads', download: true }
   }
+  // Add special resources
+  map['dua-qunoot'] = { title: 'Dua Qunoot', desc: 'The essential dua recited with Witr prayer. Learn about Dua Qunoot, its meaning, benefits, and how to recite it.', category: 'Dua' }
   return map
 }
 

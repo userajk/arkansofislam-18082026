@@ -31,7 +31,7 @@ export default function Layout({ theme, onToggleTheme }) {
     <>
       <header className="arkan-nav">
         <Link to="/" className="nav-brand">
-          <Logo size={28} />
+          <Logo size={40} />
           <span className="nav-brand-text">Arkan</span>
         </Link>
         <nav className="nav-links" aria-label="Main navigation">
@@ -87,7 +87,7 @@ export default function Layout({ theme, onToggleTheme }) {
         <div className="footer-cols">
           <div className="footer-col footer-brand-col">
             <div className="footer-brand-header">
-              <Logo size={32} />
+              <Logo size={44} />
               <p className="footer-brand">Arkan</p>
             </div>
             <p className="footer-tagline">A structured library of Islamic knowledge for every step of your journey.</p>

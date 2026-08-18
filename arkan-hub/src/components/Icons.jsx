@@ -198,3 +198,12 @@ export const ChecklistIcon = () => (
     <line x1="8" y1="16" x2="14" y2="16" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
   </svg>
 )
+
+export const DuaIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+    <path d="M7.5 6c-.5 0-1 .5-1 1v7c0 .5.5 1 1 1s1-.5 1-1V7c0-.5-.5-1-1-1z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M14.5 6c.5 0 1 .5 1 1v7c0 .5-.5 1-1 1s-1-.5-1-1V7c0-.5.5-1 1-1z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M7.5 14s1.5 2 3.5 2 3.5-2 3.5-2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M8 3c1-.5 2.5-.5 3 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
