@@ -14,6 +14,7 @@ export default function ThemeProvider({ children }) {
 
   useEffect(() => {
     const saved = localStorage.getItem('arkan-theme')
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (saved === 'light' || saved === 'dark') setTheme(saved)
     setMounted(true)
   }, [])
