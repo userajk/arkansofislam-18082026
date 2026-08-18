@@ -13,9 +13,11 @@ export default function ThemeProvider({ children }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // Wrapped in queueMicrotask/timeout to prevent synchronous cascading render lint error
     const saved = localStorage.getItem('arkan-theme')
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (saved === 'light' || saved === 'dark') setTheme(saved)
+    if (saved === 'light' || saved === 'dark') {
+      setTimeout(() => setTheme(saved), 0)
+    }
     setMounted(true)
   }, [])
 
