@@ -113,7 +113,7 @@ You're not just believing in God in the abstract — you're choosing to follow a
         ]
       },
       {
-        heading: 'What You\'re Committing To',
+        heading: "What You're Committing To",
         content: `Declaring the Shahadah means:
 
 ✓ Believing in Allah and His oneness
@@ -138,7 +138,7 @@ What it doesn't mean:
     list: [
       {
         title: 'Knowledge',
-        desc: 'You understand what you\'re saying — that Allah is one and Muhammad is His messenger. You don\'t need to know everything about Islam, but you should understand these two core truths.'
+        desc: "You understand what you're saying — that Allah is one and Muhammad is His messenger. You don't need to know everything about Islam, but you should understand these two core truths."
       },
       {
         title: 'Certainty',
@@ -188,7 +188,7 @@ What it doesn't mean:
         desc: 'Sharing your shahada with others — family, friends, or the local Muslim community — helps you feel supported and connected.'
       }
     ],
-    note: 'There\'s no strict procedure. Allah looks at your heart. If you sincerely believe the words, you\'ve declared your Shahadah.'
+    note: "There's no strict procedure. Allah looks at your heart. If you sincerely believe the words, you've declared your Shahadah."
   },
 
   afterShahadah: {
@@ -230,17 +230,17 @@ What it doesn't mean:
 
   reassurance: {
     title: 'A Final Word',
-    content: `If you\'re standing at the edge of declaring the Shahadah — whether you\'re certain, uncertain, or somewhere in between — know this:
+    content: `If you're standing at the edge of declaring the Shahadah — whether you're certain, uncertain, or somewhere in between — know this:
 
-Allah invites you. The doors are open. You don\'t have to be perfect. You don\'t have to have it all figured out. You don\'t have to change everything overnight.
+Allah invites you. The doors are open. You don't have to be perfect. You don't have to have it all figured out. You don't have to change everything overnight.
 
 The Shahadah is simple: there is no god but Allah, and Muhammad is His messenger.
 
-If your heart is drawn to this, if you want to submit to Allah and follow the Prophet\'s path — that is enough.
+If your heart is drawn to this, if you want to submit to Allah and follow the Prophet's path — that is enough.
 
 Allah says in the Quran: "Say: 'O My servants who have transgressed against themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful.'" (39:53)
 
-Your past doesn\'t matter. Where you come from doesn\'t matter. Who you were doesn\'t matter. What matters is your choice now.
+Your past doesn't matter. Where you come from doesn't matter. Who you were doesn't matter. What matters is your choice now.
 
 Welcome. You are loved, and you are home.`
   },
