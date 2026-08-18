@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 
 export default function Contact() {
@@ -40,7 +42,7 @@ export default function Contact() {
           </label>
           <label className="form-field">
             <span className="form-label">Message</span>
-            <textarea className="form-input form-textarea" name="message" required rows="6" value={form.message} onChange={update} placeholder="Write your message…" />
+            <textarea className="form-input form-textarea" name="message" required rows="6" value={form.message} onChange={update} placeholder="Write your message..." />
           </label>
           <button className="btn-gold" type="submit">Send message</button>
         </form>

@@ -1,5 +1,8 @@
+'use client'
+
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { HUBS, FEATURED, EVERYDAY_GUIDES, DOWNLOADS, QUICK_CHIPS, WHY_POINTS } from '../data/content'
 import { SearchIcon, FileIcon, DownloadIcon, BookIcon, DeviceIcon, ToolsIcon, AppleIcon, PlayIcon, KaabaIcon, BookOpenIcon, FamilyIcon, PlaneIcon, ScrollIcon, CompassIcon, HeartIcon, BabyIcon, RingIcon, MapPinIcon, QuranIcon, ChecklistIcon, DuaIcon } from '../components/Icons'
 import Logo from '../components/Logo'
@@ -18,26 +21,13 @@ const HUB_ICONS = {
 
 const getResourceIcon = (slug, category) => {
   const categoryMap = {
-    'baby': BabyIcon,
-    'nikah': RingIcon,
-    'salah': KaabaIcon,
-    'dua': CompassIcon,
-    'zakat': FileIcon,
-    'ramadan': ScrollIcon,
-    'travel': MapPinIcon,
-    'mosque': MapPinIcon,
-    'hadith': QuranIcon,
-    'health': HeartIcon,
-    'seerah': ScrollIcon,
-    'checklist': ChecklistIcon,
-    'worksheet': ChecklistIcon,
-    'guide': BookOpenIcon,
+    'baby': BabyIcon, 'nikah': RingIcon, 'salah': KaabaIcon, 'dua': CompassIcon,
+    'zakat': FileIcon, 'ramadan': ScrollIcon, 'travel': MapPinIcon, 'mosque': MapPinIcon,
+    'hadith': QuranIcon, 'health': HeartIcon, 'seerah': ScrollIcon,
+    'checklist': ChecklistIcon, 'worksheet': ChecklistIcon, 'guide': BookOpenIcon,
   }
-
   for (const [key, Icon] of Object.entries(categoryMap)) {
-    if (slug?.includes(key) || category?.toLowerCase().includes(key)) {
-      return Icon
-    }
+    if (slug?.includes(key) || category?.toLowerCase().includes(key)) return Icon
   }
   return FileIcon
 }
@@ -48,12 +38,12 @@ export default function Home() {
   const [finder, setFinder] = useState('')
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
-  const navigate = useNavigate()
+  const router = useRouter()
 
   const submitFinder = e => {
     e.preventDefault()
     const q = finder.trim()
-    navigate(q ? `/directory?q=${encodeURIComponent(q)}` : '/directory')
+    router.push(q ? `/directory?q=${encodeURIComponent(q)}` : '/directory')
   }
 
   const subscribe = e => {
@@ -74,7 +64,7 @@ export default function Home() {
           A structured library of Islamic knowledge for every step of your journey.
         </p>
         <div className="hero-ctas">
-          <Link to="/directory" className="btn-gold">Start exploring</Link>
+          <Link href="/directory" className="btn-gold">Start exploring</Link>
           <a href="#hubs" className="btn-ghost">Browse hubs</a>
         </div>
       </section>
@@ -88,7 +78,7 @@ export default function Home() {
           {HUBS.map(hub => {
             const Icon = HUB_ICONS[hub.slug]
             return (
-              <Link key={hub.slug} to={`/hub/${hub.slug}`} className="hub-card">
+              <Link key={hub.slug} href={`/hub/${hub.slug}`} className="hub-card">
                 <span className="hub-icon">{Icon && <Icon />}</span>
                 <h3 className="hub-title">{hub.title}</h3>
                 <p className="hub-desc">{hub.desc}</p>
@@ -107,7 +97,7 @@ export default function Home() {
         <form className="finder" onSubmit={submitFinder} role="search">
           <input
             className="finder-input"
-            placeholder="Search baby names, duas, salah guides, travel rules…"
+            placeholder="Search baby names, duas, salah guides, travel rules..."
             aria-label="Search the directory"
             value={finder}
             onChange={e => setFinder(e.target.value)}
@@ -116,7 +106,7 @@ export default function Home() {
         </form>
         <div className="chips">
           {QUICK_CHIPS.map(c => (
-            <Link key={c.label} to={`/directory?q=${encodeURIComponent(c.q)}`} className="chip">{c.label}</Link>
+            <Link key={c.label} href={`/directory?q=${encodeURIComponent(c.q)}`} className="chip">{c.label}</Link>
           ))}
         </div>
       </section>
@@ -130,7 +120,7 @@ export default function Home() {
           {FEATURED.map(r => {
             const Icon = getResourceIcon(r.slug, r.category)
             return (
-              <Link key={r.slug} to={`/resource/${r.slug}`} className="res-card">
+              <Link key={r.slug} href={`/resource/${r.slug}`} className="res-card">
                 <span className="res-icon"><Icon /></span>
                 <span className="res-category">{r.category}</span>
                 <h3 className="res-title">{r.title}</h3>
@@ -151,7 +141,7 @@ export default function Home() {
           {EVERYDAY_GUIDES.map(g => {
             const Icon = getResourceIcon(g.slug, 'Guide')
             return (
-              <Link key={g.slug} to={`/resource/${g.slug}`} className="res-card">
+              <Link key={g.slug} href={`/resource/${g.slug}`} className="res-card">
                 <span className="res-icon"><Icon /></span>
                 <span className="res-category">Guide</span>
                 <h3 className="res-title">{g.title}</h3>
@@ -178,7 +168,7 @@ export default function Home() {
                   <h3 className="dl-title">{d.title}</h3>
                   <p className="dl-desc">{d.desc}</p>
                 </div>
-                <Link to={`/resource/${d.slug}`} className="dl-btn">
+                <Link href={`/resource/${d.slug}`} className="dl-btn">
                   <DownloadIcon /> Download
                 </Link>
               </div>
@@ -197,20 +187,20 @@ export default function Home() {
             <div className="phone-frame"><div className="phone-screen"><span className="phone-brand">Arkan</span></div></div>
           </div>
           <div className="banner-btns">
-            <a href="#" className="store-btn" onClick={e => e.preventDefault()}>
+            <button className="store-btn" onClick={e => e.preventDefault()}>
               <AppleIcon />
               <span>
                 <span className="store-label">Download on the</span>
                 <span className="store-name">App Store</span>
               </span>
-            </a>
-            <a href="#" className="store-btn" onClick={e => e.preventDefault()}>
+            </button>
+            <button className="store-btn" onClick={e => e.preventDefault()}>
               <PlayIcon />
               <span>
                 <span className="store-label">Get it on</span>
                 <span className="store-name">Google Play</span>
               </span>
-            </a>
+            </button>
           </div>
         </div>
       </section>

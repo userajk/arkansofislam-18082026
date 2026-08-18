@@ -1,29 +1,21 @@
-import { Link } from 'react-router-dom'
-import { FEATURED, DOWNLOADS } from '../data/content'
-import { FileIcon, DownloadIcon, KaabaIcon, BabyIcon, RingIcon, MapPinIcon, QuranIcon, BookOpenIcon, HeartIcon, ScrollIcon, ChecklistIcon } from '../components/Icons'
+import Link from 'next/link'
+import { FEATURED, DOWNLOADS } from '../../data/content'
+import { FileIcon, DownloadIcon, KaabaIcon, BabyIcon, RingIcon, MapPinIcon, QuranIcon, BookOpenIcon, HeartIcon, ScrollIcon, ChecklistIcon } from '../../components/Icons'
+
+export const metadata = {
+  title: 'Resources',
+  description: 'Hand-picked Islamic guides and a printable library you can use offline.',
+}
 
 const getResourceIcon = (slug, category) => {
   const categoryMap = {
-    'baby': BabyIcon,
-    'nikah': RingIcon,
-    'salah': KaabaIcon,
-    'dua': FileIcon,
-    'zakat': FileIcon,
-    'ramadan': ScrollIcon,
-    'travel': MapPinIcon,
-    'mosque': MapPinIcon,
-    'hadith': QuranIcon,
-    'health': HeartIcon,
-    'seerah': ScrollIcon,
-    'checklist': ChecklistIcon,
-    'worksheet': ChecklistIcon,
-    'guide': BookOpenIcon,
+    'baby': BabyIcon, 'nikah': RingIcon, 'salah': KaabaIcon, 'dua': FileIcon,
+    'zakat': FileIcon, 'ramadan': ScrollIcon, 'travel': MapPinIcon, 'mosque': MapPinIcon,
+    'hadith': QuranIcon, 'health': HeartIcon, 'seerah': ScrollIcon,
+    'checklist': ChecklistIcon, 'worksheet': ChecklistIcon, 'guide': BookOpenIcon,
   }
-
   for (const [key, Icon] of Object.entries(categoryMap)) {
-    if (slug?.includes(key) || category?.toLowerCase().includes(key)) {
-      return Icon
-    }
+    if (slug?.includes(key) || category?.toLowerCase().includes(key)) return Icon
   }
   return FileIcon
 }
@@ -45,7 +37,7 @@ export default function Resources() {
         {FEATURED.map(r => {
           const Icon = getResourceIcon(r.slug, r.category)
           return (
-            <Link key={r.slug} to={`/resource/${r.slug}`} className="res-card">
+            <Link key={r.slug} href={`/resource/${r.slug}`} className="res-card">
               <span className="res-icon"><Icon /></span>
               <span className="res-category">{r.category}</span>
               <h3 className="res-title">{r.title}</h3>
@@ -69,7 +61,7 @@ export default function Resources() {
                 <h3 className="dl-title">{d.title}</h3>
                 <p className="dl-desc">{d.desc}</p>
               </div>
-              <Link to={`/resource/${d.slug}`} className="dl-btn">
+              <Link href={`/resource/${d.slug}`} className="dl-btn">
                 <DownloadIcon /> Download
               </Link>
             </div>

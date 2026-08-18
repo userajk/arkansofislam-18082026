@@ -1,6 +1,11 @@
-import { Link } from 'react-router-dom'
-import { WHY_POINTS } from '../data/content'
-import { BookIcon, DeviceIcon, ToolsIcon } from '../components/Icons'
+import Link from 'next/link'
+import { WHY_POINTS } from '../../data/content'
+import { BookIcon, DeviceIcon, ToolsIcon } from '../../components/Icons'
+
+export const metadata = {
+  title: 'About',
+  description: 'Learn what Arkan Directory Hub is and how it helps you explore Islamic knowledge.',
+}
 
 const WHY_ICONS = [BookIcon, DeviceIcon, ToolsIcon]
 
@@ -46,7 +51,7 @@ export default function About() {
       </div>
 
       <div className="article-back">
-        <Link to="/directory" className="text-link">Browse the directory →</Link>
+        <Link href="/directory" className="text-link">Browse the directory →</Link>
       </div>
     </section>
   )

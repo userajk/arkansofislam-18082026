@@ -1,28 +1,39 @@
-import { Link, useParams } from 'react-router-dom'
-import { getResource, getHub } from '../data/content'
-import { DownloadIcon } from '../components/Icons'
-import shahadahContent from '../data/shahadah-content'
-import { duaQunootContent } from '../data/dua-qunoot-content'
-import { duaWithSalahContent } from '../data/dua-with-salah-content'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { RESOURCE_MAP, getResource, getHub } from '../../../data/content'
+import { DownloadIcon } from '../../../components/Icons'
+import shahadahContent from '../../../data/shahadah-content'
+import { duaQunootContent } from '../../../data/dua-qunoot-content'
+import { duaWithSalahContent } from '../../../data/dua-with-salah-content'
 
-export default function ResourcePage() {
-  const { slug } = useParams()
+const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah'])
+
+export function generateStaticParams() {
+  return Object.keys(RESOURCE_MAP).map(slug => ({ slug }))
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params
+  const resource = getResource(slug)
+  if (!resource) return { title: 'Resource Not Found' }
+  const meta = {
+    title: resource.title,
+    description: resource.desc,
+  }
+  if (!CONTENT_PAGES.has(slug)) {
+    meta.robots = { index: false, follow: false }
+  }
+  return meta
+}
+
+export default async function ResourcePage({ params }) {
+  const { slug } = await params
   const resource = getResource(slug)
 
-  if (!resource) {
-    return (
-      <section className="page">
-        <div className="page-head">
-          <h1 className="page-title">Resource not found</h1>
-          <p className="page-lede">That resource does not exist yet. <Link to="/directory" className="text-link">Browse the directory</Link> instead.</p>
-        </div>
-      </section>
-    )
-  }
+  if (!resource) notFound()
 
   const hub = resource.hubSlug ? getHub(resource.hubSlug) : null
 
-  // Special rendering for Shahadah content
   if (slug === 'shahadah') {
     return (
       <article className="page narrow">
@@ -34,7 +45,6 @@ export default function ResourcePage() {
         </div>
 
         <div className="article-body">
-          {/* Welcome Section */}
           <section className="content-section">
             <h2 className="article-h2">{shahadahContent.intro.title}</h2>
             {shahadahContent.intro.content.split('\n\n').map((para, i) => (
@@ -42,7 +52,6 @@ export default function ResourcePage() {
             ))}
           </section>
 
-          {/* The Shahadah Statement */}
           <section className="content-section">
             <h2 className="article-h2">{shahadahContent.shahadahStatement.title}</h2>
             <p>{shahadahContent.shahadahStatement.intro}</p>
@@ -56,7 +65,6 @@ export default function ResourcePage() {
             </div>
           </section>
 
-          {/* Two Parts Explained */}
           <section className="content-section">
             <h2 className="article-h2">{shahadahContent.twoPartsExplained.title}</h2>
             <p>{shahadahContent.twoPartsExplained.intro}</p>
@@ -71,14 +79,13 @@ export default function ResourcePage() {
                     <p key={j}>{para}</p>
                   ))}
                   <div className="reflection-box">
-                    <p><strong>💭 Reflect:</strong> {part.reflection}</p>
+                    <p><strong>Reflect:</strong> {part.reflection}</p>
                   </div>
                 </div>
               </div>
             ))}
           </section>
 
-          {/* For New Muslims Section */}
           <section className="content-section">
             <h2 className="article-h2">{shahadahContent.forNewMuslims.title}</h2>
             {shahadahContent.forNewMuslims.sections.map((section, i) => (
@@ -105,7 +112,6 @@ export default function ResourcePage() {
             ))}
           </section>
 
-          {/* Conditions Section */}
           <section className="content-section">
             <h2 className="article-h2">{shahadahContent.conditions.title}</h2>
             <p>{shahadahContent.conditions.intro}</p>
@@ -119,7 +125,6 @@ export default function ResourcePage() {
             </div>
           </section>
 
-          {/* How to Declare Section */}
           <section className="content-section">
             <h2 className="article-h2">{shahadahContent.howToDeclare.title}</h2>
             <div className="steps-timeline">
@@ -136,11 +141,9 @@ export default function ResourcePage() {
             <p className="step-note"><em>{shahadahContent.howToDeclare.note}</em></p>
           </section>
 
-          {/* After Shahadah Section */}
           <section className="content-section">
             <h2 className="article-h2">{shahadahContent.afterShahadah.title}</h2>
             <p>{shahadahContent.afterShahadah.intro}</p>
-
             <div className="next-steps">
               <div className="next-steps-section">
                 <h3 className="article-h3">{shahadahContent.afterShahadah.immediate.title}</h3>
@@ -150,7 +153,6 @@ export default function ResourcePage() {
                   ))}
                 </ul>
               </div>
-
               <div className="next-steps-section">
                 <h3 className="article-h3">{shahadahContent.afterShahadah.shortTerm.title}</h3>
                 <ul className="steps-list">
@@ -159,7 +161,6 @@ export default function ResourcePage() {
                   ))}
                 </ul>
               </div>
-
               <div className="next-steps-section">
                 <h3 className="article-h3">{shahadahContent.afterShahadah.ongoing.title}</h3>
                 <ul className="steps-list">
@@ -171,7 +172,6 @@ export default function ResourcePage() {
             </div>
           </section>
 
-          {/* Reassurance Section */}
           <section className="content-section reassurance-section">
             <h2 className="article-h2">{shahadahContent.reassurance.title}</h2>
             {shahadahContent.reassurance.content.split('\n\n').map((para, i) => (
@@ -179,7 +179,6 @@ export default function ResourcePage() {
             ))}
           </section>
 
-          {/* Resources Section */}
           <section className="content-section">
             <h2 className="article-h2">{shahadahContent.resources.title}</h2>
             <div className="related-topics">
@@ -198,14 +197,13 @@ export default function ResourcePage() {
         </div>
 
         <div className="article-back">
-          {hub && <Link to={`/hub/${hub.slug}`} className="text-link">← Back to {hub.title}</Link>}
-          <Link to="/directory" className="text-link">← Back to the directory</Link>
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
         </div>
       </article>
     )
   }
 
-  // Special rendering for Dua with Salah (as a sub-hub with dua cards)
   if (slug === 'dua-with-salah') {
     return (
       <article className="page">
@@ -220,11 +218,9 @@ export default function ResourcePage() {
           <p style={{ fontSize: '15px', color: 'var(--text-soft)', marginBottom: '32px', textAlign: 'center' }}>
             {duaWithSalahContent.intro}
           </p>
-
-          {/* Dua Cards Grid */}
           <div className="res-grid">
             {duaWithSalahContent.items.map(item => (
-              <Link key={item.slug} to={`/resource/${item.slug}`} className="res-card">
+              <Link key={item.slug} href={`/resource/${item.slug}`} className="res-card">
                 <span className="res-icon">📖</span>
                 <span className="res-category">{item.category}</span>
                 <h3 className="res-title">{item.title}</h3>
@@ -236,14 +232,13 @@ export default function ResourcePage() {
         </div>
 
         <div className="article-back">
-          {hub && <Link to={`/hub/${hub.slug}`} className="text-link">← Back to {hub.title}</Link>}
-          <Link to="/directory" className="text-link">← Back to the directory</Link>
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
         </div>
       </article>
     )
   }
 
-  // Special rendering for Dua Qunoot
   if (slug === 'dua-qunoot') {
     return (
       <article className="page narrow">
@@ -255,7 +250,6 @@ export default function ResourcePage() {
         </div>
 
         <div className="article-body">
-          {/* Intro Section */}
           <section className="content-section">
             <h2 className="article-h2">{duaQunootContent.intro.title}</h2>
             {duaQunootContent.intro.content.split('\n\n').map((para, i) => (
@@ -263,7 +257,6 @@ export default function ResourcePage() {
             ))}
           </section>
 
-          {/* The Dua Qunoot Statement */}
           <section className="content-section">
             <h2 className="article-h2">{duaQunootContent.duaQunootStatement.title}</h2>
             <p>{duaQunootContent.duaQunootStatement.intro}</p>
@@ -276,14 +269,13 @@ export default function ResourcePage() {
               ))}
             </div>
             <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-              <a href="#" className="btn-gold" onClick={(e) => e.preventDefault()}>
+              <span className="btn-gold">
                 <DownloadIcon /> Download Dua Qunoot (Arabic PDF)
-              </a>
+              </span>
               <p className="dl-note" style={{ marginTop: '1rem' }}>PDF with Arabic text and transliteration coming soon</p>
             </div>
           </section>
 
-          {/* History Section */}
           <section className="content-section">
             <h2 className="article-h2">{duaQunootContent.history.title}</h2>
             {duaQunootContent.history.sections.map((section, i) => (
@@ -296,7 +288,6 @@ export default function ResourcePage() {
             ))}
           </section>
 
-          {/* When to Recite Section */}
           <section className="content-section">
             <h2 className="article-h2">{duaQunootContent.whenToRecite.title}</h2>
             {duaQunootContent.whenToRecite.sections.map((section, i) => (
@@ -309,7 +300,6 @@ export default function ResourcePage() {
             ))}
           </section>
 
-          {/* Benefits Section */}
           <section className="content-section">
             <h2 className="article-h2">{duaQunootContent.benefits.title}</h2>
             <div className="benefits-grid">
@@ -322,7 +312,6 @@ export default function ResourcePage() {
             </div>
           </section>
 
-          {/* FAQ Section */}
           <section className="content-section">
             <h2 className="article-h2">{duaQunootContent.faq.title}</h2>
             <div className="faq-section">
@@ -335,7 +324,6 @@ export default function ResourcePage() {
             </div>
           </section>
 
-          {/* Resources Section */}
           <section className="content-section">
             <h2 className="article-h2">{duaQunootContent.resources.title}</h2>
             <div className="related-topics">
@@ -354,14 +342,13 @@ export default function ResourcePage() {
         </div>
 
         <div className="article-back">
-          {hub && <Link to={`/hub/${hub.slug}`} className="text-link">← Back to {hub.title}</Link>}
-          <Link to="/directory" className="text-link">← Back to the directory</Link>
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
         </div>
       </article>
     )
   }
 
-  // Default placeholder rendering for other resources
   return (
     <article className="page narrow">
       <div className="page-head">
@@ -373,9 +360,9 @@ export default function ResourcePage() {
 
       {resource.download && (
         <div className="dl-cta">
-          <button className="btn-gold dl-cta-btn" onClick={() => {}}>
+          <span className="btn-gold dl-cta-btn">
             <DownloadIcon /> Download PDF
-          </button>
+          </span>
           <p className="dl-note">The printable version is being prepared and will be available here soon.</p>
         </div>
       )}
@@ -401,8 +388,8 @@ export default function ResourcePage() {
       </div>
 
       <div className="article-back">
-        {hub && <Link to={`/hub/${hub.slug}`} className="text-link">← Back to {hub.title}</Link>}
-        <Link to="/directory" className="text-link">← Back to the directory</Link>
+        {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+        <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
       </div>
     </article>
   )

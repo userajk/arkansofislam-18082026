@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; }
+button { cursor: pointer; border: none; background: none; padding: 0; }
+p, h1, h2, h3 { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
 
+/* Theme */
 .arkan {
   --bg: #0B1220;
   --bg-raised: #101A2E;
@@ -996,7 +1003,7 @@
 }
 
 .steps-list li::before {
-  content: '→';
+  content: '\2192';
   position: absolute;
   left: 0;
   color: var(--gold);

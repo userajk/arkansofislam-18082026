@@ -83,7 +83,7 @@ export const HUBS = [
     desc: 'The words of the Prophet (peace be upon him) — collections, commentary, and daily lessons.',
     intro: 'Learn from the recorded words and actions of the Prophet (peace be upon him) — from the major collections to short daily narrations with context.',
     items: [
-      { title: 'Forty Hadith of Nawawi', desc: 'The forty foundational narrations with brief commentary.' },
+      { title: 'Forty Hadith of Nabawi', desc: 'The forty foundational narrations with brief commentary.' },
       { title: 'Hadith of the Day', desc: 'A short narration each day, with context and a practical lesson.' },
       { title: 'Sahih Collections Overview', desc: 'Bukhari, Muslim, and the other major books explained.' },
       { title: 'How Hadith Are Graded', desc: 'Sahih, hasan, daif — what the grades mean and why they matter.' },
