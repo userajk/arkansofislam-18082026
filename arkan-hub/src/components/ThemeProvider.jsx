@@ -10,26 +10,31 @@ export function useTheme() {
 
 export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('dark')
-  const [mounted, setMounted] = useState(false)
 
+  // Load initial saved theme once on mount
   useEffect(() => {
-    // Wrapped in queueMicrotask/timeout to prevent synchronous cascading render lint error
     const saved = localStorage.getItem('arkan-theme')
     if (saved === 'light' || saved === 'dark') {
-      setTimeout(() => setTheme(saved), 0)
+      document.documentElement.classList.remove('light', 'dark')
+      document.documentElement.classList.add(saved)
+      // Use requestAnimationFrame so it does not run synchronously during render phase
+      requestAnimationFrame(() => setTheme(saved))
     }
-    setMounted(true)
   }, [])
 
-  useEffect(() => {
-    if (mounted) localStorage.setItem('arkan-theme', theme)
-  }, [theme, mounted])
-
-  const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
+  const toggleTheme = () => {
+    setTheme(prev => {
+      const next = prev === 'dark' ? 'light' : 'dark'
+      localStorage.setItem('arkan-theme', next)
+      document.documentElement.classList.remove('light', 'dark')
+      document.documentElement.classList.add(next)
+      return next
+    })
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={`arkan ${mounted ? theme : 'dark'}`} suppressHydrationWarning>
+      <div className={`arkan ${theme}`} suppressHydrationWarning>
         {children}
       </div>
     </ThemeContext.Provider>
