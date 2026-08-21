@@ -295,7 +295,7 @@ export default async function ResourcePage({ params }) {
             <div className="dl-cta" style={{ marginTop: '2rem' }}>
               <DuaQunootPdfButton
                 arabicText={duaQunootContent.duaQunootStatement.languages[0].script}
-                transliteration={duaQunootContent.duaQunootStatement.languages[1].script}
+                urduTranslation={duaQunootContent.duaQunootStatement.languages[3].script}
               />
               <p className="dl-note" style={{ marginTop: '0.75rem' }}>A4 portrait PDF with Arabic text and transliteration — prints or saves to your device.</p>
             </div>
