@@ -15,7 +15,7 @@ export default function Privacy() {
       </div>
       <div className="article-body">
         <p>
-          This is a placeholder privacy policy for the Arkan Directory Hub prototype. The site stores only your
+          This is a placeholder privacy policy for Arkans of Islam. The site stores only your
           theme preference, kept locally in your browser. No personal data is collected, transmitted, or shared.
         </p>
         <p>A full policy will be published before launch.</p>

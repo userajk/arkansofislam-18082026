@@ -4,7 +4,7 @@ import { BookIcon, DeviceIcon, ToolsIcon } from '../../components/Icons'
 
 export const metadata = {
   title: 'About',
-  description: 'Learn what Arkan Directory Hub is and how it helps you explore Islamic knowledge.',
+  description: 'Learn what Arkans of Islam is and how it helps you explore Islamic knowledge.',
 }
 
 const WHY_ICONS = [BookIcon, DeviceIcon, ToolsIcon]
@@ -14,13 +14,13 @@ export default function About() {
     <section className="page narrow">
       <div className="page-head">
         <p className="section-eyebrow">About</p>
-        <h1 className="page-title">What Arkan Directory Hub is</h1>
+        <h1 className="page-title">What Arkans of Islam is</h1>
         <div className="hero-rule" aria-hidden="true" />
       </div>
 
       <div className="article-body">
         <p>
-          Arkan Directory Hub is a structured library of Islamic knowledge. Instead of scattered articles,
+          Arkans of Islam is a structured library of Islamic knowledge. Instead of scattered articles,
           everything lives inside clear hubs — the core pillars of worship, practical guides for daily life,
           relationships and family, travel and heritage, history and prophetic stories, hadith, health, and
           a complete Umrah companion.

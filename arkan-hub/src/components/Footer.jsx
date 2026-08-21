@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="footer-col footer-brand-col">
           <div className="footer-brand-header">
             <Logo size={44} />
-            <p className="footer-brand">Arkan</p>
+            <p className="footer-brand">Arkans of Islam</p>
           </div>
           <p className="footer-tagline">A structured library of Islamic knowledge for every step of your journey.</p>
         </div>
@@ -42,7 +42,7 @@ export default function Footer() {
       <p className="footer-disclaimer">
         Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
       </p>
-      <p className="footer-copy">&copy; {new Date().getFullYear()} Arkan</p>
+      <p className="footer-copy">&copy; {new Date().getFullYear()} Arkans of Islam</p>
     </footer>
   )
 }

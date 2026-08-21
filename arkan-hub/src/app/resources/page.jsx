@@ -4,7 +4,7 @@ import { FileIcon, DownloadIcon, KaabaIcon, BabyIcon, RingIcon, MapPinIcon, Qura
 
 export const metadata = {
   title: 'Resources',
-  description: 'Hand-picked Islamic guides and a printable library you can use offline.',
+  description: 'Hand-picked Islamic guides covering the five pillars of Islam, duas, and a printable library you can use offline.',
 }
 
 const getResourceIcon = (slug, category) => {

@@ -8,7 +8,7 @@ export default function DuaQunootPdfButton({ arabicText, transliteration }) {
 <html dir="rtl" lang="ar">
 <head>
 <meta charset="utf-8">
-<title>Dua e Qunoot - Arkan Directory Hub</title>
+<title>Dua e Qunoot - Arkans of Islam</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&family=Inter:wght@400;500;600&display=swap');
   @page { size: A4 portrait; margin: 20mm 18mm 25mm 18mm; }
@@ -34,7 +34,7 @@ export default function DuaQunootPdfButton({ arabicText, transliteration }) {
 <div class="header">
   <img src="/arkan-logo-2.png" alt="Arkan" crossorigin>
   <div class="header-text">
-    <div class="header-title">Arkan Directory Hub</div>
+    <div class="header-title">Arkans of Islam</div>
     <div class="header-sub">Islamic Knowledge, Structured</div>
   </div>
 </div>

@@ -5,10 +5,13 @@ import Footer from '../components/Footer'
 
 export const metadata = {
   title: {
-    default: 'Arkan Directory Hub',
-    template: '%s | Arkan Directory Hub',
+    default: 'Arkans of Islam',
+    template: '%s | Arkans of Islam',
   },
-  description: 'A structured library of Islamic knowledge for every step of your journey.',
+  description: 'A structured library of Islamic guides, duas, and resources covering the five pillars of Islam, daily worship, and Muslim family life.',
+  openGraph: {
+    siteName: 'Arkans of Islam',
+  },
   icons: {
     icon: [
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
@@ -25,6 +28,17 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Arkans of Islam',
+              url: 'https://www.arkansofislam.com',
+            })
+          }}
+        />
       </head>
       <body>
         <ThemeProvider>

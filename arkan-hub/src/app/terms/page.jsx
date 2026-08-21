@@ -15,7 +15,7 @@ export default function Terms() {
       </div>
       <div className="article-body">
         <p>
-          This is a placeholder terms page for the Arkan Directory Hub prototype. Content across the site is
+          This is a placeholder terms page for Arkans of Islam. Content across the site is
           provided for educational purposes only and is not a substitute for guidance from qualified scholars.
         </p>
         <p>Full terms will be published before launch.</p>
