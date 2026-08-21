@@ -187,7 +187,7 @@ const buildResourceMap = () => {
     if (!map[d.slug]) map[d.slug] = { title: d.title, desc: d.desc, category: 'Downloads', download: true }
   }
   // Add special resources
-  map['dua-qunoot'] = { title: 'Dua Qunoot', desc: 'The essential dua recited with Witr prayer. Learn about Dua Qunoot, its meaning, benefits, and how to recite it.', category: 'Dua' }
+  map['dua-qunoot'] = { title: 'Dua e Qunoot', desc: 'Full Dua e Qunoot in Arabic with English translation, Urdu tarjuma, transliteration, word-by-word meaning, and downloadable PDF. Learn when and how to recite it in Witr prayer.', category: 'Dua' }
   return map
 }
 

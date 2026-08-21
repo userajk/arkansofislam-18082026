@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { RESOURCE_MAP, getResource, getHub } from '../../../data/content'
 import { DownloadIcon } from '../../../components/Icons'
+import DuaQunootPdfButton from '../../../components/DuaQunootPdf'
 import shahadahContent from '../../../data/shahadah-content'
 import { duaQunootContent } from '../../../data/dua-qunoot-content'
 import { duaWithSalahContent } from '../../../data/dua-with-salah-content'
@@ -16,6 +17,15 @@ export async function generateMetadata({ params }) {
   const { slug } = await params
   const resource = getResource(slug)
   if (!resource) return { title: 'Resource Not Found' }
+
+  if (slug === 'dua-qunoot') {
+    return {
+      title: 'Dua e Qunoot — Arabic Text, Translation & PDF Download',
+      description: 'Full Dua e Qunoot in Arabic with English translation, Urdu tarjuma, Roman transliteration, word-by-word meaning, and free PDF download. Learn how to recite it in Witr prayer.',
+      keywords: 'dua e qunoot, dua qunoot, dua e qunoot in english, dua e qunoot pdf, dua e qunoot urdu translation, witr ki dua, dua qunoot arabic',
+    }
+  }
+
   const meta = {
     title: resource.title,
     description: resource.desc,
@@ -240,13 +250,27 @@ export default async function ResourcePage({ params }) {
   }
 
   if (slug === 'dua-qunoot') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: duaQunootContent.faq.questions.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
     return (
       <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
         <div className="page-head">
           <p className="section-eyebrow">Dua</p>
-          <h1 className="page-title">Dua Qunoot</h1>
+          <h1 className="page-title">Dua e Qunoot</h1>
           <div className="hero-rule" aria-hidden="true" />
-          <p className="page-lede">The essential dua recited with Witr prayer. Learn about Dua Qunoot, its meaning, benefits, and how to recite it.</p>
+          <p className="page-lede">{resource.desc}</p>
         </div>
 
         <div className="article-body">
@@ -264,16 +288,42 @@ export default async function ResourcePage({ params }) {
               {duaQunootContent.duaQunootStatement.languages.map((lang, i) => (
                 <div key={i} className="shahadah-language-group">
                   <h4 className="shahadah-lang-name">{lang.name}</h4>
-                  <p className="shahadah-lang-text">{lang.script}</p>
+                  <p className={`shahadah-lang-text${lang.name === 'Arabic' ? ' qunoot-arabic' : ''}`}>{lang.script}</p>
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-              <span className="btn-gold">
-                <DownloadIcon /> Download Dua Qunoot (Arabic PDF)
-              </span>
-              <p className="dl-note" style={{ marginTop: '1rem' }}>PDF with Arabic text and transliteration coming soon</p>
+            <div className="dl-cta" style={{ marginTop: '2rem' }}>
+              <DuaQunootPdfButton
+                arabicText={duaQunootContent.duaQunootStatement.languages[0].script}
+                transliteration={duaQunootContent.duaQunootStatement.languages[1].script}
+              />
+              <p className="dl-note" style={{ marginTop: '0.75rem' }}>A4 portrait PDF with Arabic text and transliteration — prints or saves to your device.</p>
             </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{duaQunootContent.wordByWord.title}</h2>
+            <p>{duaQunootContent.wordByWord.intro}</p>
+            <div className="word-by-word-grid">
+              {duaQunootContent.wordByWord.phrases.map((phrase, i) => (
+                <div key={i} className="wbw-row">
+                  <span className="wbw-arabic">{phrase.arabic}</span>
+                  <span className="wbw-meaning">{phrase.meaning}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{duaQunootContent.howToRecite.title}</h2>
+            {duaQunootContent.howToRecite.sections.map((section, i) => (
+              <div key={i}>
+                <h3 className="article-h3">{section.heading}</h3>
+                {section.content.split('\n\n').map((para, j) => (
+                  <p key={j}>{para}</p>
+                ))}
+              </div>
+            ))}
           </section>
 
           <section className="content-section">
@@ -289,14 +339,9 @@ export default async function ResourcePage({ params }) {
           </section>
 
           <section className="content-section">
-            <h2 className="article-h2">{duaQunootContent.whenToRecite.title}</h2>
-            {duaQunootContent.whenToRecite.sections.map((section, i) => (
-              <div key={i}>
-                <h3 className="article-h3">{section.heading}</h3>
-                {section.content.split('\n\n').map((para, j) => (
-                  <p key={j}>{para}</p>
-                ))}
-              </div>
+            <h2 className="article-h2">{duaQunootContent.duringCalamity.title}</h2>
+            {duaQunootContent.duringCalamity.content.split('\n\n').map((para, i) => (
+              <p key={i}>{para}</p>
             ))}
           </section>
 
@@ -317,7 +362,7 @@ export default async function ResourcePage({ params }) {
             <div className="faq-section">
               {duaQunootContent.faq.questions.map((item, i) => (
                 <div key={i} className="faq-item">
-                  <p className="faq-question"><strong>Q: {item.q}</strong></p>
+                  <h3 className="faq-question">{item.q}</h3>
                   <p className="faq-answer">{item.a}</p>
                 </div>
               ))}
