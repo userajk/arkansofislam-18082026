@@ -47,12 +47,12 @@ export default function DuaQunootPdfButton({ arabicText, urduTranslation }) {
 </div>
 
 <div class="arabic-block">
-  <div class="arabic-text">\${arabicText}</div>
+  <div class="arabic-text">${arabicText}</div>
 </div>
 
 <div class="section-label">Urdu Translation</div>
 <div class="urdu-block">
-  <div class="urdu-text">\${urduTranslation}</div>
+  <div class="urdu-text">${urduTranslation}</div>
 </div>
 
 <div class="footer">
