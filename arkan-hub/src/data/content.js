@@ -10,7 +10,8 @@ export const HUBS = [
     intro: 'The foundations of worship, explained clearly. Each topic below opens a practical guide with steps, tools, and answers to common questions.',
     items: [
       { title: 'Salah', desc: 'Step-by-step prayer guides, prayer times, and common questions.' },
-      { title: 'Zakat', desc: 'Understand nisab, calculate what is due, and learn who is eligible.' },
+      { title: 'Zakat', desc: 'Calculate your zakat on gold, savings, and investments with our free calculator.' },
+      { title: 'Zakat al-Fitr', slug: 'zakat-al-fitr', desc: 'Fitrana guide — how much to pay, when to pay, and who is obligated before Eid.' },
       { title: 'Sawm', desc: 'Fasting essentials for Ramadan and voluntary fasts through the year.' },
       { title: 'Hajj', desc: 'A complete walkthrough of the pilgrimage, from ihram to tawaf.' },
       { title: 'Shahadah', desc: 'The declaration of faith and what it means in daily life.' },
@@ -194,6 +195,8 @@ const buildResourceMap = () => {
 }
 
 export const RESOURCE_MAP = buildResourceMap()
+
+export const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah', 'zakat', 'zakat-al-fitr'])
 
 export const getHub = slug => HUBS.find(h => h.slug === slug)
 export const getResource = slug => RESOURCE_MAP[slug]

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { RESOURCE_MAP, getResource, getHub } from '../../../data/content'
+import { RESOURCE_MAP, CONTENT_PAGES, getResource, getHub } from '../../../data/content'
 import { DownloadIcon } from '../../../components/Icons'
 import DuaQunootPdfButton from '../../../components/DuaQunootPdf'
 import ZakatCalculator from '../../../components/ZakatCalculator'
@@ -10,7 +10,6 @@ import { duaWithSalahContent } from '../../../data/dua-with-salah-content'
 import { zakatContent } from '../../../data/zakat-content'
 import { zakatAlFitrContent } from '../../../data/zakat-al-fitr-content'
 
-const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah', 'zakat', 'zakat-al-fitr'])
 
 export function generateStaticParams() {
   return Object.keys(RESOURCE_MAP).map(slug => ({ slug }))
