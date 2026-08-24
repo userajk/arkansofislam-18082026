@@ -239,7 +239,7 @@ export default function HomeContent() {
                   <p className="dl-desc">{d.desc}</p>
                 </div>
                 <Link href={`/resource/${d.slug}`} className="dl-btn">
-                  <DownloadIcon /> Download
+                  <DownloadIcon /> {d.slug === 'zakat' ? 'Calculate Now' : 'Download'}
                 </Link>
               </div>
             )

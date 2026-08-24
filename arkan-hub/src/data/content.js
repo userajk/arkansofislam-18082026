@@ -151,7 +151,7 @@ export const EVERYDAY_GUIDES = HUBS[1].items.slice(0, 6).map(g => ({ ...g, slug:
 export const DOWNLOADS = [
   { title: 'Hajj Packing Checklist', desc: 'Everything to pack for the days of Hajj.' },
   { title: 'Umrah Checklist', desc: 'A printable companion for your Umrah journey.' },
-  { title: 'Calculate Zakat', desc: 'Find out how much zakat you owe on your wealth.', slug: 'zakat' },
+  { title: 'Zakat Calculator', desc: 'Find out how much zakat you owe on your wealth.', slug: 'zakat' },
   { title: 'Prayer Tracker', desc: 'Track your five daily prayers each month.' },
   { title: 'Kids Reward Chart', desc: 'Encourage children with a printable reward chart.' },
 ].map(d => ({ ...d, slug: d.slug || slugify(d.title) }))
