@@ -8,8 +8,9 @@ import shahadahContent from '../../../data/shahadah-content'
 import { duaQunootContent } from '../../../data/dua-qunoot-content'
 import { duaWithSalahContent } from '../../../data/dua-with-salah-content'
 import { zakatContent } from '../../../data/zakat-content'
+import { zakatAlFitrContent } from '../../../data/zakat-al-fitr-content'
 
-const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah', 'zakat'])
+const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah', 'zakat', 'zakat-al-fitr'])
 
 export function generateStaticParams() {
   return Object.keys(RESOURCE_MAP).map(slug => ({ slug }))
@@ -19,6 +20,14 @@ export async function generateMetadata({ params }) {
   const { slug } = await params
   const resource = getResource(slug)
   if (!resource) return { title: 'Resource Not Found' }
+
+  if (slug === 'zakat-al-fitr') {
+    return {
+      title: { absolute: 'Zakat al-Fitr (Fitrana) — Amount, Rules & When to Pay | Arkans of Islam' },
+      description: 'Learn about zakat al-fitr (fitrana) — what it is, how much to pay per person, when to pay before Eid al-Fitr, and who is obligated. Includes the difference between zakat and fitrana.',
+      keywords: 'zakat al fitr, fitrana, fitra, zakat ul fitr, fitrana in islam, zakat al fitr amount, fitra amount, eid al fitr zakat, fitra ramadan, fitra and zakat, sadaqatul fitr',
+    }
+  }
 
   if (slug === 'zakat') {
     return {
@@ -206,6 +215,115 @@ export default async function ResourcePage({ params }) {
                 <div key={i} className="related-topic">
                   <h3>{topic.title}</h3>
                   <p>{topic.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <div className="note-box">
+          Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'zakat-al-fitr') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: zakatAlFitrContent.faq.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
+    return (
+      <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div className="page-head">
+          <p className="section-eyebrow">Core Pillars</p>
+          <h1 className="page-title">Zakat al-Fitr (Fitrana) — A Complete Guide</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">Everything you need to know about Zakat al-Fitr — what it is, how much to pay, when to pay it, and who is obligated before the Eid al-Fitr prayer.</p>
+        </div>
+
+        <div className="article-body">
+          <section className="content-section">
+            <h2 className="article-h2">{zakatAlFitrContent.intro.title}</h2>
+            {zakatAlFitrContent.intro.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{zakatAlFitrContent.howMuch.title}</h2>
+            {zakatAlFitrContent.howMuch.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{zakatAlFitrContent.whenToPay.title}</h2>
+            {zakatAlFitrContent.whenToPay.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{zakatAlFitrContent.whoMustPay.title}</h2>
+            {zakatAlFitrContent.whoMustPay.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{zakatAlFitrContent.whoReceives.title}</h2>
+            {zakatAlFitrContent.whoReceives.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{zakatAlFitrContent.difference.title}</h2>
+            <div className="zakat-gold-table-wrap">
+              <table className="zakat-gold-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Zakat</th>
+                    <th>Zakat al-Fitr</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {zakatAlFitrContent.difference.rows.map((row, i) => (
+                    <tr key={i}>
+                      <td><strong>{row.aspect}</strong></td>
+                      <td>{row.zakat}</td>
+                      <td>{row.fitr}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Frequently Asked Questions</h2>
+            <div className="faq-section">
+              {zakatAlFitrContent.faq.map((item, i) => (
+                <div key={i} className="faq-item">
+                  <h3 className="faq-question">{item.q}</h3>
+                  <p className="faq-answer">{item.a}</p>
                 </div>
               ))}
             </div>

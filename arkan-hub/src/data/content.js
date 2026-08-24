@@ -189,6 +189,7 @@ const buildResourceMap = () => {
   // Add special resources
   map['dua-qunoot'] = { title: 'Dua e Qunoot', desc: 'Full Dua e Qunoot in Arabic with English translation, Urdu tarjuma, transliteration, word-by-word meaning, and downloadable PDF. Learn when and how to recite it in Witr prayer.', category: 'Dua' }
   map['zakat'] = { title: 'Zakat Calculator', desc: 'Free zakat calculator to find how much zakat you owe on gold, silver, savings, investments, and other assets. Includes nisab threshold, tola reference, and FAQ.', category: 'Core Pillars', hubSlug: 'core-pillars' }
+  map['zakat-al-fitr'] = { title: 'Zakat al-Fitr (Fitrana)', desc: 'Complete guide to Zakat al-Fitr — what it is, how much fitrana to pay per person, when to pay before Eid al-Fitr, and the difference between zakat and fitrana.', category: 'Core Pillars', hubSlug: 'core-pillars' }
   return map
 }
 
