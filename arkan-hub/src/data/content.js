@@ -31,6 +31,12 @@ export const HUBS = [
       { title: 'Wudu', desc: 'How to perform ablution correctly, with common mistakes to avoid.' },
       { title: 'Islamic Etiquette', desc: 'Adab for daily interactions, food, and the home.' },
       { title: 'Halal Lifestyle', desc: 'Practical guidance on halal food, finance, and living.' },
+      { title: 'Halal Meaning in Islam', slug: 'halal-meaning-in-islam', desc: 'What halal and haram mean — the definition, Quranic basis, and how it applies to daily life.' },
+      { title: 'Halal Food in Islam', slug: 'halal-food-in-islam', desc: 'What Muslims can and cannot eat — halal slaughter, prohibited foods, seafood, and gelatin.' },
+      { title: 'Halal Banking', slug: 'halal-banking', desc: 'Why interest is haram, how Islamic banking works, halal mortgages, and credit cards.' },
+      { title: 'Is Insurance Halal?', slug: 'halal-insurance', desc: 'Conventional insurance vs takaful — the debate, the evidence, and practical guidance.' },
+      { title: 'Halal Investing', slug: 'halal-investing', desc: 'Stock screening, mutual funds, forex, gold trading, and Shariah-compliant investing.' },
+      { title: 'Music in Islam', slug: 'music-in-islam', desc: 'The scholarly debate on music — hadith evidence, areas of agreement, and guidance.' },
       { title: 'Islamic Finance Basics', desc: 'Riba-free banking, saving, and spending fundamentals.' },
     ],
   },
@@ -191,12 +197,19 @@ const buildResourceMap = () => {
   map['dua-qunoot'] = { title: 'Dua e Qunoot', desc: 'Full Dua e Qunoot in Arabic with English translation, Urdu tarjuma, transliteration, word-by-word meaning, and downloadable PDF. Learn when and how to recite it in Witr prayer.', category: 'Dua' }
   map['zakat'] = { title: 'Zakat Calculator', desc: 'Free zakat calculator to find how much zakat you owe on gold, silver, savings, investments, and other assets. Includes nisab threshold, tola reference, and FAQ.', category: 'Core Pillars', hubSlug: 'core-pillars' }
   map['zakat-al-fitr'] = { title: 'Zakat al-Fitr (Fitrana)', desc: 'Complete guide to Zakat al-Fitr — what it is, how much fitrana to pay per person, when to pay before Eid al-Fitr, and the difference between zakat and fitrana.', category: 'Core Pillars', hubSlug: 'core-pillars' }
+  map['halal-lifestyle'] = { title: 'Halal Lifestyle', desc: 'Practical guidance on living a halal life — covering food, finance, insurance, investing, and everyday decisions rooted in the Quran and Sunnah.', category: 'Guides', hubSlug: 'guides' }
+  map['halal-meaning-in-islam'] = { title: 'Halal Meaning in Islam', desc: 'What halal and haram mean in Islam — the definition, Quranic basis, hadith evidence, the five categories of actions, and how halal applies to food, finance, and daily life.', category: 'Guides', hubSlug: 'guides' }
+  map['halal-food-in-islam'] = { title: 'Halal Food in Islam', desc: 'Complete guide to halal food — what Muslims can and cannot eat, halal slaughter (zabiha), seafood rules, gelatin, kosher vs halal, and dietary restrictions in Islam.', category: 'Guides', hubSlug: 'guides' }
+  map['halal-banking'] = { title: 'Halal Banking', desc: 'Understanding halal banking — why interest (riba) is haram, how Islamic banking works, halal mortgages, credit cards, and savings accounts.', category: 'Guides', hubSlug: 'guides' }
+  map['halal-insurance'] = { title: 'Is Insurance Halal in Islam?', desc: 'Is insurance halal or haram? Learn why conventional insurance is debated, what takaful (Islamic insurance) is, and practical guidance for life, car, and home insurance.', category: 'Guides', hubSlug: 'guides' }
+  map['halal-investing'] = { title: 'Halal Investing', desc: 'Guide to halal investing — Shariah stock screening, halal mutual funds, forex trading in Islam, gold trading rules, and what makes an investment permissible.', category: 'Guides', hubSlug: 'guides' }
+  map['music-in-islam'] = { title: 'Music in Islam', desc: 'Is music halal or haram in Islam? The scholarly debate, hadith evidence, areas of agreement, nasheeds, and practical guidance for Muslims.', category: 'Guides', hubSlug: 'guides' }
   return map
 }
 
 export const RESOURCE_MAP = buildResourceMap()
 
-export const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah', 'zakat', 'zakat-al-fitr'])
+export const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah', 'zakat', 'zakat-al-fitr', 'halal-lifestyle', 'halal-meaning-in-islam', 'halal-food-in-islam', 'halal-banking', 'halal-insurance', 'halal-investing', 'music-in-islam'])
 
 export const getHub = slug => HUBS.find(h => h.slug === slug)
 export const getResource = slug => RESOURCE_MAP[slug]

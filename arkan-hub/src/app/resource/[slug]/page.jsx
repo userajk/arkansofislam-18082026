@@ -9,6 +9,13 @@ import { duaQunootContent } from '../../../data/dua-qunoot-content'
 import { duaWithSalahContent } from '../../../data/dua-with-salah-content'
 import { zakatContent } from '../../../data/zakat-content'
 import { zakatAlFitrContent } from '../../../data/zakat-al-fitr-content'
+import { halalLifestyleContent } from '../../../data/halal-lifestyle-content'
+import { halalMeaningContent } from '../../../data/halal-meaning-content'
+import { halalFoodContent } from '../../../data/halal-food-content'
+import { halalBankingContent } from '../../../data/halal-banking-content'
+import { halalInsuranceContent } from '../../../data/halal-insurance-content'
+import { halalInvestingContent } from '../../../data/halal-investing-content'
+import { musicInIslamContent } from '../../../data/music-in-islam-content'
 
 
 export function generateStaticParams() {
@@ -33,6 +40,62 @@ export async function generateMetadata({ params }) {
       title: { absolute: 'Calculating Zakat — Free Zakat Calculator | Arkans of Islam' },
       description: 'Use our free zakat calculator to find how much zakat you owe on gold, silver, savings, stocks, and other assets. Includes zakat on gold per tola, nisab threshold, and common questions answered.',
       keywords: 'calculating zakat, zakat calculator, zakat on gold, zakat on gold per tola, nisab for zakat, zakat on savings, zakat on stocks, zakat on property, zakat percentage, how to calculate zakat',
+    }
+  }
+
+  if (slug === 'halal-lifestyle') {
+    return {
+      title: { absolute: 'Halal Lifestyle — Food, Finance & Living Guide | Arkans of Islam' },
+      description: 'Practical guidance on living a halal life — covering food, finance, insurance, investing, and everyday decisions rooted in the Quran and Sunnah.',
+      keywords: 'halal lifestyle, halal living, halal guide, halal in islam, halal and haram',
+    }
+  }
+
+  if (slug === 'halal-meaning-in-islam') {
+    return {
+      title: { absolute: 'Halal Meaning in Islam — Definition, Quran & Hadith | Arkans of Islam' },
+      description: 'What does halal mean in Islam? Learn the definition of halal and haram, the five categories of actions, Quranic verses, hadith references, and how halal applies to food, finance, and daily life.',
+      keywords: 'halal meaning in islam, halal in islam, halal and haram, halal haram, halal definition, what is halal, halal meaning, halal and haram in islam, concept of halal and haram, halal for muslim',
+    }
+  }
+
+  if (slug === 'halal-food-in-islam') {
+    return {
+      title: { absolute: 'Halal Food in Islam — What Muslims Can & Cannot Eat | Arkans of Islam' },
+      description: 'Complete guide to halal food in Islam — what Muslims can and cannot eat, halal slaughter (zabiha), prohibited foods, seafood rules, gelatin, kosher vs halal, and dietary restrictions.',
+      keywords: 'halal food in islam, muslim food, muslim dietary restrictions, halal meat, muslim food restrictions, halal food list, foods prohibited in islam, zabiha, halal slaughter, kosher halal, muslim food rules, halal meat in islam',
+    }
+  }
+
+  if (slug === 'halal-banking') {
+    return {
+      title: { absolute: 'Halal Banking — Islamic Finance, Mortgages & Credit Cards | Arkans of Islam' },
+      description: 'Understanding halal banking — why interest (riba) is haram, how Islamic banking works, halal mortgages (diminishing musharakah, murabaha), halal credit cards, and savings accounts.',
+      keywords: 'halal banking, halal credit card, halal mortgage, riba in islam, islamic banking, halal way to buy a house, halal interest, compound interest halal, halal fixed deposit',
+    }
+  }
+
+  if (slug === 'halal-insurance') {
+    return {
+      title: { absolute: 'Is Insurance Halal in Islam? Takaful & Islamic Insurance Guide | Arkans of Islam' },
+      description: 'Is insurance halal or haram in Islam? Learn why conventional insurance is debated, what takaful (Islamic insurance) is, and practical guidance for life, car, home, and health insurance.',
+      keywords: 'halal insurance, life insurance halal, life insurance haram, takaful, islamic insurance, halal car insurance, home insurance halal, is insurance halal in islam',
+    }
+  }
+
+  if (slug === 'halal-investing') {
+    return {
+      title: { absolute: 'Halal Investing — Stocks, Forex, Gold & Islamic Finance Guide | Arkans of Islam' },
+      description: 'Guide to halal investing — Shariah stock screening criteria, halal mutual funds, is forex trading halal, gold trading in Islam, margin trading, and income purification.',
+      keywords: 'halal investing, stock market islam, forex trading in islam, halal stocks, mutual funds halal, gold trading in islam, halal investment, margin trading halal, islamically halal stock',
+    }
+  }
+
+  if (slug === 'music-in-islam') {
+    return {
+      title: { absolute: 'Is Music Halal or Haram in Islam? Scholarly Views & Evidence | Arkans of Islam' },
+      description: 'Is music halal or haram in Islam? An honest look at the scholarly debate — hadith evidence, the prohibition view, the permissibility view, areas of agreement, nasheeds, and practical guidance.',
+      keywords: 'music is haram, music halal in islam, is music haram, halal music, nasheeds, duff in islam, musical instruments islam, is listening to music a sin in islam',
     }
   }
 
@@ -437,6 +500,769 @@ export default async function ResourcePage({ params }) {
 
         <div className="article-back">
           {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'halal-lifestyle') {
+    return (
+      <article className="page">
+        <div className="page-head">
+          <p className="section-eyebrow">{resource.category}</p>
+          <h1 className="page-title">{halalLifestyleContent.title}</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">{halalLifestyleContent.description}</p>
+        </div>
+
+        <div className="article-body" style={{ maxWidth: '100%' }}>
+          <p style={{ fontSize: '15px', color: 'var(--text-soft)', marginBottom: '32px', textAlign: 'center' }}>
+            {halalLifestyleContent.intro}
+          </p>
+          <div className="res-grid">
+            {halalLifestyleContent.items.map(item => (
+              <Link key={item.slug} href={`/resource/${item.slug}`} className="res-card">
+                <span className="res-icon">📖</span>
+                <span className="res-category">{item.category}</span>
+                <h3 className="res-title">{item.title}</h3>
+                <p className="res-desc">{item.desc}</p>
+                <span className="res-more">Read more <span aria-hidden="true">&rarr;</span></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'halal-meaning-in-islam') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: halalMeaningContent.faq.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
+    return (
+      <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div className="page-head">
+          <p className="section-eyebrow">Guides</p>
+          <h1 className="page-title">Halal Meaning in Islam — What Is Halal and Haram?</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">A clear explanation of what halal and haram mean, the Quranic and hadith basis, and how these concepts apply to food, finance, and everyday life.</p>
+        </div>
+
+        <div className="article-body">
+          <section className="content-section">
+            <h2 className="article-h2">{halalMeaningContent.intro.title}</h2>
+            {halalMeaningContent.intro.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalMeaningContent.categories.title}</h2>
+            <p>{halalMeaningContent.categories.intro}</p>
+            {halalMeaningContent.categories.items.map((item, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{item.name}</h3>
+                <p className="faq-answer">{item.desc}</p>
+              </div>
+            ))}
+            <p><em>{halalMeaningContent.categories.note}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalMeaningContent.quranBasis.title}</h2>
+            {halalMeaningContent.quranBasis.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalMeaningContent.hadithBasis.title}</h2>
+            {halalMeaningContent.hadithBasis.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            <blockquote className="hadith-block">{halalMeaningContent.hadithBasis.hadith}</blockquote>
+            {halalMeaningContent.hadithBasis.afterHadith.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalMeaningContent.principles.title}</h2>
+            {halalMeaningContent.principles.items.map((item, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{item.name}</h3>
+                <p className="faq-answer">{item.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalMeaningContent.areasOverview.title}</h2>
+            <p>{halalMeaningContent.areasOverview.intro}</p>
+            {halalMeaningContent.areasOverview.areas.map((area, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question"><Link href={`/resource/${area.slug}`} className="text-link">{area.title}</Link></h3>
+                <p className="faq-answer">{area.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Frequently Asked Questions</h2>
+            <div className="faq-section">
+              {halalMeaningContent.faq.map((item, i) => (
+                <div key={i} className="faq-item">
+                  <h3 className="faq-question">{item.q}</h3>
+                  <p className="faq-answer">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Explore All Halal Guides</h2>
+            <p><Link href="/resource/halal-lifestyle" className="text-link">Halal Lifestyle Hub — Food, Finance, Insurance, Investing & More &rarr;</Link></p>
+          </section>
+        </div>
+
+        <div className="note-box">
+          Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/resource/halal-lifestyle" className="text-link">&larr; Back to Halal Lifestyle</Link>
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'halal-food-in-islam') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: halalFoodContent.faq.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
+    return (
+      <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div className="page-head">
+          <p className="section-eyebrow">Guides</p>
+          <h1 className="page-title">Halal Food in Islam — What Muslims Can and Cannot Eat</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">A complete guide to Islamic dietary rules — prohibited foods, halal slaughter, seafood, gelatin, and the difference between kosher and halal.</p>
+        </div>
+
+        <div className="article-body">
+          <section className="content-section">
+            <h2 className="article-h2">{halalFoodContent.intro.title}</h2>
+            {halalFoodContent.intro.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalFoodContent.prohibitedFoods.title}</h2>
+            <p>{halalFoodContent.prohibitedFoods.intro}</p>
+            <blockquote className="hadith-block">{halalFoodContent.prohibitedFoods.quranText}</blockquote>
+            {halalFoodContent.prohibitedFoods.categories.map((cat, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{cat.name}</h3>
+                <p className="faq-answer">{cat.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalFoodContent.halalSlaughter.title}</h2>
+            {halalFoodContent.halalSlaughter.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            <ol>
+              {halalFoodContent.halalSlaughter.requirements.map((req, i) => (
+                <li key={i}>{req}</li>
+              ))}
+            </ol>
+            <p>{halalFoodContent.halalSlaughter.afterRequirements}</p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalFoodContent.permittedAnimals.title}</h2>
+            {halalFoodContent.permittedAnimals.sections.map((sec, i) => (
+              <div key={i}>
+                <h3 className="article-h3">{sec.heading}</h3>
+                <p>{sec.content}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalFoodContent.seafood.title}</h2>
+            {halalFoodContent.seafood.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {halalFoodContent.seafood.schools.map((school, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{school.name}</h3>
+                <p className="faq-answer">{school.ruling}</p>
+              </div>
+            ))}
+            <p><em>{halalFoodContent.seafood.note}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalFoodContent.gelatinAlcohol.title}</h2>
+            {halalFoodContent.gelatinAlcohol.sections.map((sec, i) => (
+              <div key={i}>
+                <h3 className="article-h3">{sec.heading}</h3>
+                <p>{sec.content}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalFoodContent.kosherVsHalal.title}</h2>
+            {halalFoodContent.kosherVsHalal.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            <div className="zakat-gold-table-wrap">
+              <table className="zakat-gold-table">
+                <thead>
+                  <tr><th></th><th>Kosher</th><th>Halal</th></tr>
+                </thead>
+                <tbody>
+                  {halalFoodContent.kosherVsHalal.differences.map((row, i) => (
+                    <tr key={i}>
+                      <td><strong>{row.aspect}</strong></td>
+                      <td>{row.kosher}</td>
+                      <td>{row.halal}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p>{halalFoodContent.kosherVsHalal.conclusion}</p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Frequently Asked Questions</h2>
+            <div className="faq-section">
+              {halalFoodContent.faq.map((item, i) => (
+                <div key={i} className="faq-item">
+                  <h3 className="faq-question">{item.q}</h3>
+                  <p className="faq-answer">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Related Guides</h2>
+            <p>Understanding halal food is part of a broader framework. Learn the full meaning of halal and how it applies to other areas of life.</p>
+            <p><Link href="/resource/halal-meaning-in-islam" className="text-link">Halal Meaning in Islam — Definition, Quran & Hadith &rarr;</Link></p>
+            <p><Link href="/resource/halal-lifestyle" className="text-link">Halal Lifestyle Hub — All Guides &rarr;</Link></p>
+          </section>
+        </div>
+
+        <div className="note-box">
+          Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/resource/halal-lifestyle" className="text-link">&larr; Back to Halal Lifestyle</Link>
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'halal-banking') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: halalBankingContent.faq.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
+    return (
+      <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div className="page-head">
+          <p className="section-eyebrow">Guides</p>
+          <h1 className="page-title">Halal Banking — Islamic Finance Without Interest</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">Why interest (riba) is prohibited in Islam, how Islamic banking works, and practical options for mortgages, credit cards, and savings.</p>
+        </div>
+
+        <div className="article-body">
+          <section className="content-section">
+            <h2 className="article-h2">{halalBankingContent.intro.title}</h2>
+            {halalBankingContent.intro.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalBankingContent.ribaProhibition.title}</h2>
+            {halalBankingContent.ribaProhibition.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {halalBankingContent.ribaProhibition.verses.map((v, i) => (
+              <blockquote key={i} className="hadith-block">
+                <strong>{v.ref}:</strong> {v.text}
+              </blockquote>
+            ))}
+            <blockquote className="hadith-block">{halalBankingContent.ribaProhibition.hadith}</blockquote>
+            <p>{halalBankingContent.ribaProhibition.afterHadith}</p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalBankingContent.islamicBankingModels.title}</h2>
+            <p>{halalBankingContent.islamicBankingModels.intro}</p>
+            {halalBankingContent.islamicBankingModels.models.map((model, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{model.name}</h3>
+                <p className="faq-answer">{model.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalBankingContent.halalMortgages.title}</h2>
+            {halalBankingContent.halalMortgages.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {halalBankingContent.halalMortgages.options.map((opt, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{opt.name}</h3>
+                <p className="faq-answer">{opt.desc}</p>
+              </div>
+            ))}
+            <p><em>{halalBankingContent.halalMortgages.note}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalBankingContent.halalCreditCards.title}</h2>
+            {halalBankingContent.halalCreditCards.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {halalBankingContent.halalCreditCards.types.map((type, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{type.name}</h3>
+                <p className="faq-answer">{type.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalBankingContent.savingsAccounts.title}</h2>
+            {halalBankingContent.savingsAccounts.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {halalBankingContent.savingsAccounts.types.map((type, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{type.name}</h3>
+                <p className="faq-answer">{type.desc}</p>
+              </div>
+            ))}
+            <p><em>{halalBankingContent.savingsAccounts.note}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Frequently Asked Questions</h2>
+            <div className="faq-section">
+              {halalBankingContent.faq.map((item, i) => (
+                <div key={i} className="faq-item">
+                  <h3 className="faq-question">{item.q}</h3>
+                  <p className="faq-answer">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Related Guides</h2>
+            <p><Link href="/resource/halal-insurance" className="text-link">Is Insurance Halal in Islam? Takaful & Islamic Insurance Guide &rarr;</Link></p>
+            <p><Link href="/resource/halal-investing" className="text-link">Halal Investing — Stocks, Forex, Gold & Islamic Finance &rarr;</Link></p>
+            <p><Link href="/resource/halal-meaning-in-islam" className="text-link">Halal Meaning in Islam — Definition, Quran & Hadith &rarr;</Link></p>
+            <p><Link href="/resource/halal-lifestyle" className="text-link">Halal Lifestyle Hub — All Guides &rarr;</Link></p>
+          </section>
+        </div>
+
+        <div className="note-box">
+          Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/resource/halal-lifestyle" className="text-link">&larr; Back to Halal Lifestyle</Link>
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'halal-insurance') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: halalInsuranceContent.faq.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
+    return (
+      <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div className="page-head">
+          <p className="section-eyebrow">Guides</p>
+          <h1 className="page-title">Is Insurance Halal in Islam? A Guide to Takaful</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">Why conventional insurance is debated among scholars, how takaful (Islamic insurance) works, and practical guidance for life, car, home, and health coverage.</p>
+        </div>
+
+        <div className="article-body">
+          <section className="content-section">
+            <h2 className="article-h2">{halalInsuranceContent.intro.title}</h2>
+            {halalInsuranceContent.intro.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInsuranceContent.whyDebated.title}</h2>
+            <p>{halalInsuranceContent.whyDebated.intro}</p>
+            {halalInsuranceContent.whyDebated.issues.map((issue, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{issue.name}</h3>
+                <p className="faq-answer">{issue.desc}</p>
+              </div>
+            ))}
+            <p><em>{halalInsuranceContent.whyDebated.note}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInsuranceContent.takaful.title}</h2>
+            {halalInsuranceContent.takaful.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            <ol>
+              {halalInsuranceContent.takaful.howItWorks.map((step, i) => (
+                <li key={i}>{step}</li>
+              ))}
+            </ol>
+            <p><strong>{halalInsuranceContent.takaful.keyDifference}</strong></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInsuranceContent.types.title}</h2>
+            {halalInsuranceContent.types.items.map((item, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{item.name}</h3>
+                <p className="faq-answer">{item.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInsuranceContent.practicalGuidance.title}</h2>
+            {halalInsuranceContent.practicalGuidance.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {halalInsuranceContent.practicalGuidance.points.map((pt, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{pt.scenario}</h3>
+                <p className="faq-answer">{pt.guidance}</p>
+              </div>
+            ))}
+            <p><em>{halalInsuranceContent.practicalGuidance.note}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Frequently Asked Questions</h2>
+            <div className="faq-section">
+              {halalInsuranceContent.faq.map((item, i) => (
+                <div key={i} className="faq-item">
+                  <h3 className="faq-question">{item.q}</h3>
+                  <p className="faq-answer">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Related Guides</h2>
+            <p><Link href="/resource/halal-banking" className="text-link">Halal Banking — Islamic Finance Without Interest &rarr;</Link></p>
+            <p><Link href="/resource/halal-investing" className="text-link">Halal Investing — Stocks, Forex & Gold &rarr;</Link></p>
+            <p><Link href="/resource/halal-meaning-in-islam" className="text-link">Halal Meaning in Islam — Definition, Quran & Hadith &rarr;</Link></p>
+            <p><Link href="/resource/halal-lifestyle" className="text-link">Halal Lifestyle Hub — All Guides &rarr;</Link></p>
+          </section>
+        </div>
+
+        <div className="note-box">
+          Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/resource/halal-lifestyle" className="text-link">&larr; Back to Halal Lifestyle</Link>
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'halal-investing') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: halalInvestingContent.faq.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
+    return (
+      <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div className="page-head">
+          <p className="section-eyebrow">Guides</p>
+          <h1 className="page-title">Halal Investing — Stocks, Forex, Gold & Islamic Finance</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">How to invest in a Shariah-compliant way — stock screening criteria, halal mutual funds, forex trading, gold trading, and what makes an investment permissible or prohibited.</p>
+        </div>
+
+        <div className="article-body">
+          <section className="content-section">
+            <h2 className="article-h2">{halalInvestingContent.intro.title}</h2>
+            {halalInvestingContent.intro.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInvestingContent.screeningCriteria.title}</h2>
+            {halalInvestingContent.screeningCriteria.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+
+            <h3 className="article-h3">{halalInvestingContent.screeningCriteria.businessScreening.title}</h3>
+            <p>{halalInvestingContent.screeningCriteria.businessScreening.intro}</p>
+            <ul>
+              {halalInvestingContent.screeningCriteria.businessScreening.excluded.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+            <p><em>{halalInvestingContent.screeningCriteria.businessScreening.note}</em></p>
+
+            <h3 className="article-h3">{halalInvestingContent.screeningCriteria.financialScreening.title}</h3>
+            <p>{halalInvestingContent.screeningCriteria.financialScreening.intro}</p>
+            <div className="zakat-gold-table-wrap">
+              <table className="zakat-gold-table">
+                <thead>
+                  <tr><th>Ratio</th><th>Threshold</th></tr>
+                </thead>
+                <tbody>
+                  {halalInvestingContent.screeningCriteria.financialScreening.ratios.map((r, i) => (
+                    <tr key={i}><td><strong>{r.name}</strong></td><td>{r.threshold}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p><em>{halalInvestingContent.screeningCriteria.financialScreening.note}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInvestingContent.mutualFunds.title}</h2>
+            {halalInvestingContent.mutualFunds.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            <ol>
+              {halalInvestingContent.mutualFunds.howTheyWork.map((step, i) => (
+                <li key={i}>{step}</li>
+              ))}
+            </ol>
+            <p><em>{halalInvestingContent.mutualFunds.note}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInvestingContent.forexTrading.title}</h2>
+            {halalInvestingContent.forexTrading.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {halalInvestingContent.forexTrading.issues.map((issue, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{issue.name}</h3>
+                <p className="faq-answer">{issue.desc}</p>
+              </div>
+            ))}
+            <p><strong>{halalInvestingContent.forexTrading.conclusion}</strong></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInvestingContent.goldTrading.title}</h2>
+            {halalInvestingContent.goldTrading.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            <blockquote className="hadith-block">{halalInvestingContent.goldTrading.hadith}</blockquote>
+            {halalInvestingContent.goldTrading.rules.map((r, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{r.rule}</h3>
+                <p className="faq-answer">{r.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInvestingContent.marginAndFutures.title}</h2>
+            {halalInvestingContent.marginAndFutures.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {halalInvestingContent.marginAndFutures.items.map((item, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{item.name}</h3>
+                <p className="faq-answer">{item.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{halalInvestingContent.purification.title}</h2>
+            {halalInvestingContent.purification.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Frequently Asked Questions</h2>
+            <div className="faq-section">
+              {halalInvestingContent.faq.map((item, i) => (
+                <div key={i} className="faq-item">
+                  <h3 className="faq-question">{item.q}</h3>
+                  <p className="faq-answer">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Related Guides</h2>
+            <p><Link href="/resource/halal-banking" className="text-link">Halal Banking — Islamic Finance Without Interest &rarr;</Link></p>
+            <p><Link href="/resource/halal-insurance" className="text-link">Is Insurance Halal in Islam? &rarr;</Link></p>
+            <p><Link href="/resource/halal-meaning-in-islam" className="text-link">Halal Meaning in Islam — Definition, Quran & Hadith &rarr;</Link></p>
+            <p><Link href="/resource/halal-lifestyle" className="text-link">Halal Lifestyle Hub — All Guides &rarr;</Link></p>
+          </section>
+        </div>
+
+        <div className="note-box">
+          Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/resource/halal-lifestyle" className="text-link">&larr; Back to Halal Lifestyle</Link>
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'music-in-islam') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: musicInIslamContent.faq.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
+    return (
+      <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div className="page-head">
+          <p className="section-eyebrow">Guides</p>
+          <h1 className="page-title">Is Music Halal or Haram in Islam?</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">An honest look at the scholarly debate on music — the evidence from hadith, the different views, the areas where scholars agree, and practical guidance for Muslims.</p>
+        </div>
+
+        <div className="article-body">
+          <section className="content-section">
+            <h2 className="article-h2">{musicInIslamContent.intro.title}</h2>
+            {musicInIslamContent.intro.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{musicInIslamContent.prohibitionView.title}</h2>
+            {musicInIslamContent.prohibitionView.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {musicInIslamContent.prohibitionView.evidence.map((ev, i) => (
+              <div key={i}>
+                <h3 className="article-h3">{ev.type}</h3>
+                <p>{ev.text}</p>
+              </div>
+            ))}
+            <p><em>{musicInIslamContent.prohibitionView.scholars}</em></p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{musicInIslamContent.permissibilityView.title}</h2>
+            {musicInIslamContent.permissibilityView.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            {musicInIslamContent.permissibilityView.evidence.map((ev, i) => (
+              <div key={i}>
+                <h3 className="article-h3">{ev.type}</h3>
+                <p>{ev.text}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{musicInIslamContent.areasOfAgreement.title}</h2>
+            <p>{musicInIslamContent.areasOfAgreement.intro}</p>
+            {musicInIslamContent.areasOfAgreement.points.map((pt, i) => (
+              <div key={i} className="faq-item">
+                <h3 className="faq-question">{pt.point}</h3>
+                <p className="faq-answer">{pt.desc}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{musicInIslamContent.practicalGuidance.title}</h2>
+            {musicInIslamContent.practicalGuidance.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            <ol>
+              {musicInIslamContent.practicalGuidance.steps.map((step, i) => (
+                <li key={i}>{step}</li>
+              ))}
+            </ol>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Frequently Asked Questions</h2>
+            <div className="faq-section">
+              {musicInIslamContent.faq.map((item, i) => (
+                <div key={i} className="faq-item">
+                  <h3 className="faq-question">{item.q}</h3>
+                  <p className="faq-answer">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Related Guides</h2>
+            <p><Link href="/resource/halal-meaning-in-islam" className="text-link">Halal Meaning in Islam — Definition, Quran & Hadith &rarr;</Link></p>
+            <p><Link href="/resource/halal-lifestyle" className="text-link">Halal Lifestyle Hub — All Guides &rarr;</Link></p>
+          </section>
+        </div>
+
+        <div className="note-box">
+          Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/resource/halal-lifestyle" className="text-link">&larr; Back to Halal Lifestyle</Link>
           <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
         </div>
       </article>
