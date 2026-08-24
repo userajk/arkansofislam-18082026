@@ -327,6 +327,12 @@ export default async function ResourcePage({ params }) {
               ))}
             </div>
           </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Related: Zakat on Wealth</h2>
+            <p>Zakat al-Fitr and Zakat on wealth are separate obligations with different rules. If you also need to calculate your annual zakat on gold, savings, and investments, use our free calculator.</p>
+            <p><Link href="/resource/zakat" className="text-link">Zakat Calculator — Calculate Your Zakat on Gold, Savings & Assets &rarr;</Link></p>
+          </section>
         </div>
 
         <div className="note-box">
@@ -416,6 +422,12 @@ export default async function ResourcePage({ params }) {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Related: Zakat al-Fitr (Fitrana)</h2>
+            <p>Besides annual zakat on wealth, Muslims are also required to pay Zakat al-Fitr (Fitrana) before the Eid al-Fitr prayer at the end of Ramadan. It is a separate obligation with different rules.</p>
+            <p><Link href="/resource/zakat-al-fitr" className="text-link">Zakat al-Fitr Guide — Amount, Rules & When to Pay &rarr;</Link></p>
           </section>
         </div>
 
