@@ -100,6 +100,14 @@ export async function generateMetadata({ params }) {
     }
   }
 
+  if (slug === 'dua-with-salah') {
+    return {
+      title: resource.title,
+      description: resource.desc,
+      robots: { index: false, follow: true },
+    }
+  }
+
   if (slug === 'dua-qunoot') {
     return {
       title: 'Dua e Qunoot — Arabic Text, Translation & PDF Download',
