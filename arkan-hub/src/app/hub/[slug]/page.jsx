@@ -27,6 +27,7 @@ export async function generateMetadata({ params }) {
   return {
     title: hub.title,
     description: hub.desc,
+    robots: { index: false, follow: true },
   }
 }
 
