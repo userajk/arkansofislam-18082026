@@ -139,22 +139,22 @@ export const HUBS = [
 
 export const FEATURED = [
   { title: 'Salah Step-by-Step', category: 'Core Pillars', desc: 'Learn the prayer from takbir to tasleem with clear, simple steps.' },
-  { title: 'Zakat Worksheet', category: 'Core Pillars', desc: 'Work out your zakat with a simple, guided worksheet.' },
+  { title: 'Zakat Calculator', category: 'Core Pillars', desc: 'Calculate your zakat on gold, savings, and investments.', slug: 'zakat' },
   { title: 'Muslim Baby Names', category: 'Family', desc: 'Browse meaningful names with their origins and meanings.' },
   { title: 'Nikah Checklist', category: 'Family', desc: 'A complete checklist for planning the marriage contract.' },
   { title: 'Travel Duas', category: 'Travel', desc: 'Duas for setting out, arriving, and returning safely.' },
   { title: 'Seerah Timeline', category: 'History', desc: 'The life of the Prophet (peace be upon him) in chronological chapters.' },
-].map(r => ({ ...r, slug: slugify(r.title) }))
+].map(r => ({ ...r, slug: r.slug || slugify(r.title) }))
 
 export const EVERYDAY_GUIDES = HUBS[1].items.slice(0, 6).map(g => ({ ...g, slug: slugify(g.title) }))
 
 export const DOWNLOADS = [
   { title: 'Hajj Packing Checklist', desc: 'Everything to pack for the days of Hajj.' },
   { title: 'Umrah Checklist', desc: 'A printable companion for your Umrah journey.' },
-  { title: 'Zakat Worksheet', desc: 'Calculate your zakat step by step on paper.' },
+  { title: 'Calculate Zakat', desc: 'Find out how much zakat you owe on your wealth.', slug: 'zakat' },
   { title: 'Prayer Tracker', desc: 'Track your five daily prayers each month.' },
   { title: 'Kids Reward Chart', desc: 'Encourage children with a printable reward chart.' },
-].map(d => ({ ...d, slug: slugify(d.title) }))
+].map(d => ({ ...d, slug: d.slug || slugify(d.title) }))
 
 export const QUICK_CHIPS = [
   { label: 'Baby Names', q: 'baby names' },
@@ -188,6 +188,7 @@ const buildResourceMap = () => {
   }
   // Add special resources
   map['dua-qunoot'] = { title: 'Dua e Qunoot', desc: 'Full Dua e Qunoot in Arabic with English translation, Urdu tarjuma, transliteration, word-by-word meaning, and downloadable PDF. Learn when and how to recite it in Witr prayer.', category: 'Dua' }
+  map['zakat'] = { title: 'Zakat Calculator', desc: 'Free zakat calculator to find how much zakat you owe on gold, silver, savings, investments, and other assets. Includes nisab threshold, tola reference, and FAQ.', category: 'Core Pillars', hubSlug: 'core-pillars' }
   return map
 }
 

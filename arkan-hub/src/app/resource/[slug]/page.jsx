@@ -3,11 +3,13 @@ import { notFound } from 'next/navigation'
 import { RESOURCE_MAP, getResource, getHub } from '../../../data/content'
 import { DownloadIcon } from '../../../components/Icons'
 import DuaQunootPdfButton from '../../../components/DuaQunootPdf'
+import ZakatCalculator from '../../../components/ZakatCalculator'
 import shahadahContent from '../../../data/shahadah-content'
 import { duaQunootContent } from '../../../data/dua-qunoot-content'
 import { duaWithSalahContent } from '../../../data/dua-with-salah-content'
+import { zakatContent } from '../../../data/zakat-content'
 
-const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah'])
+const CONTENT_PAGES = new Set(['shahadah', 'dua-qunoot', 'dua-with-salah', 'zakat'])
 
 export function generateStaticParams() {
   return Object.keys(RESOURCE_MAP).map(slug => ({ slug }))
@@ -17,6 +19,14 @@ export async function generateMetadata({ params }) {
   const { slug } = await params
   const resource = getResource(slug)
   if (!resource) return { title: 'Resource Not Found' }
+
+  if (slug === 'zakat') {
+    return {
+      title: { absolute: 'Calculating Zakat — Free Zakat Calculator | Arkans of Islam' },
+      description: 'Use our free zakat calculator to find how much zakat you owe on gold, silver, savings, stocks, and other assets. Includes zakat on gold per tola, nisab threshold, and common questions answered.',
+      keywords: 'calculating zakat, zakat calculator, zakat on gold, zakat on gold per tola, nisab for zakat, zakat on savings, zakat on stocks, zakat on property, zakat percentage, how to calculate zakat',
+    }
+  }
 
   if (slug === 'dua-qunoot') {
     return {
@@ -196,6 +206,96 @@ export default async function ResourcePage({ params }) {
                 <div key={i} className="related-topic">
                   <h3>{topic.title}</h3>
                   <p>{topic.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <div className="note-box">
+          Content is provided for educational purposes only. Please verify religious matters with qualified scholars.
+        </div>
+
+        <div className="article-back">
+          {hub && <Link href={`/hub/${hub.slug}`} className="text-link">&larr; Back to {hub.title}</Link>}
+          <Link href="/directory" className="text-link">&larr; Back to the directory</Link>
+        </div>
+      </article>
+    )
+  }
+
+  if (slug === 'zakat') {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: zakatContent.faq.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+
+    return (
+      <article className="page narrow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div className="page-head">
+          <p className="section-eyebrow">Core Pillars</p>
+          <h1 className="page-title">Calculating Zakat — Free Online Calculator</h1>
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="page-lede">Calculate zakat on gold, silver, cash, savings, investments, and other assets. Enter your values below to find out how much zakat you owe.</p>
+        </div>
+
+        <ZakatCalculator />
+
+        <div className="article-body">
+          <section className="content-section">
+            <h2 className="article-h2">{zakatContent.whatIsZakat.title}</h2>
+            {zakatContent.whatIsZakat.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">{zakatContent.zakatOnGold.title}</h2>
+            {zakatContent.zakatOnGold.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+            <p><strong>{zakatContent.zakatOnGold.howTo}</strong></p>
+            <p>{zakatContent.zakatOnGold.example}</p>
+
+            <div className="zakat-gold-table-wrap">
+              <table className="zakat-gold-table">
+                <thead>
+                  <tr>
+                    <th>Gold (Tola)</th>
+                    <th>Gold (Grams)</th>
+                    <th>Zakat Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {zakatContent.zakatOnGold.table.map((row, i) => (
+                    <tr key={i} className={row.note ? 'nisab-row' : ''}>
+                      <td>{row.tola} tola{row.note ? ` — ${row.note}` : ''}</td>
+                      <td>{row.grams}g</td>
+                      <td>2.5% of market value</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p>{zakatContent.zakatOnGold.silverNote}</p>
+          </section>
+
+          <section className="content-section">
+            <h2 className="article-h2">Frequently Asked Questions</h2>
+            <div className="faq-section">
+              {zakatContent.faq.map((item, i) => (
+                <div key={i} className="faq-item">
+                  <h3 className="faq-question">{item.q}</h3>
+                  <p className="faq-answer">{item.a}</p>
                 </div>
               ))}
             </div>
