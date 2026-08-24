@@ -48,6 +48,7 @@ export async function generateMetadata({ params }) {
       title: { absolute: 'Halal Lifestyle — Food, Finance & Living Guide | Arkans of Islam' },
       description: 'Practical guidance on living a halal life — covering food, finance, insurance, investing, and everyday decisions rooted in the Quran and Sunnah.',
       keywords: 'halal lifestyle, halal living, halal guide, halal in islam, halal and haram',
+      robots: { index: false, follow: true },
     }
   }
 
