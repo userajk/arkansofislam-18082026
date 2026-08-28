@@ -29,8 +29,8 @@ export async function generateMetadata({ params }) {
 
   if (slug === 'zakat-al-fitr') {
     return {
-      title: { absolute: 'Zakat al-Fitr (Fitrana) — Amount, Rules & When to Pay | Arkans of Islam' },
-      description: 'Learn about zakat al-fitr (fitrana) — what it is, how much to pay per person, when to pay before Eid al-Fitr, and who is obligated. Includes the difference between zakat and fitrana.',
+      title: { absolute: 'Zakat al-Fitr (Fitrana) — Amount, Rules & When to Pay' },
+      description: 'Zakat al-Fitr (fitrana) explained — what it is, how much to pay per person, when to pay before Eid al-Fitr, and the difference between zakat and fitrana.',
       keywords: 'zakat al fitr, fitrana, fitra, zakat ul fitr, fitrana in islam, zakat al fitr amount, fitra amount, eid al fitr zakat, fitra ramadan, fitra and zakat, sadaqatul fitr',
     }
   }
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
   if (slug === 'zakat') {
     return {
       title: { absolute: 'Calculating Zakat — Free Zakat Calculator | Arkans of Islam' },
-      description: 'Use our free zakat calculator to find how much zakat you owe on gold, silver, savings, stocks, and other assets. Includes zakat on gold per tola, nisab threshold, and common questions answered.',
+      description: 'Use our free zakat calculator to find how much zakat you owe on gold, silver, savings, and stocks. Includes nisab threshold and zakat on gold per tola.',
       keywords: 'calculating zakat, zakat calculator, zakat on gold, zakat on gold per tola, nisab for zakat, zakat on savings, zakat on stocks, zakat on property, zakat percentage, how to calculate zakat',
     }
   }
@@ -54,48 +54,48 @@ export async function generateMetadata({ params }) {
 
   if (slug === 'halal-meaning-in-islam') {
     return {
-      title: { absolute: 'Halal Meaning in Islam — Definition, Quran & Hadith | Arkans of Islam' },
-      description: 'What does halal mean in Islam? Learn the definition of halal and haram, the five categories of actions, Quranic verses, hadith references, and how halal applies to food, finance, and daily life.',
+      title: { absolute: 'Halal Meaning in Islam — Definition, Quran & Hadith' },
+      description: 'What does halal mean in Islam? The definition of halal and haram, the five categories of actions, Quranic verses, and how halal applies to daily life.',
       keywords: 'halal meaning in islam, halal in islam, halal and haram, halal haram, halal definition, what is halal, halal meaning, halal and haram in islam, concept of halal and haram, halal for muslim',
     }
   }
 
   if (slug === 'halal-food-in-islam') {
     return {
-      title: { absolute: 'Halal Food in Islam — What Muslims Can & Cannot Eat | Arkans of Islam' },
-      description: 'Complete guide to halal food in Islam — what Muslims can and cannot eat, halal slaughter (zabiha), prohibited foods, seafood rules, gelatin, kosher vs halal, and dietary restrictions.',
+      title: { absolute: 'Halal Food in Islam — What Muslims Can & Cannot Eat' },
+      description: 'A guide to halal food in Islam — what Muslims can and cannot eat, halal slaughter (zabiha), prohibited foods, seafood rules, and kosher vs halal.',
       keywords: 'halal food in islam, muslim food, muslim dietary restrictions, halal meat, muslim food restrictions, halal food list, foods prohibited in islam, zabiha, halal slaughter, kosher halal, muslim food rules, halal meat in islam',
     }
   }
 
   if (slug === 'halal-banking') {
     return {
-      title: { absolute: 'Halal Banking — Islamic Finance, Mortgages & Credit Cards | Arkans of Islam' },
-      description: 'Understanding halal banking — why interest (riba) is haram, how Islamic banking works, halal mortgages (diminishing musharakah, murabaha), halal credit cards, and savings accounts.',
+      title: { absolute: 'Halal Banking — Islamic Finance, Mortgages & Cards' },
+      description: 'Understanding halal banking — why interest (riba) is haram, how Islamic banking works, halal mortgages, credit cards, and savings accounts.',
       keywords: 'halal banking, halal credit card, halal mortgage, riba in islam, islamic banking, halal way to buy a house, halal interest, compound interest halal, halal fixed deposit',
     }
   }
 
   if (slug === 'halal-insurance') {
     return {
-      title: { absolute: 'Is Insurance Halal in Islam? Takaful & Islamic Insurance Guide | Arkans of Islam' },
-      description: 'Is insurance halal or haram in Islam? Learn why conventional insurance is debated, what takaful (Islamic insurance) is, and practical guidance for life, car, home, and health insurance.',
+      title: { absolute: 'Is Insurance Halal in Islam? Takaful & Islamic Insurance' },
+      description: 'Is insurance halal or haram in Islam? Why conventional insurance is debated, what takaful (Islamic insurance) is, and guidance for life and car cover.',
       keywords: 'halal insurance, life insurance halal, life insurance haram, takaful, islamic insurance, halal car insurance, home insurance halal, is insurance halal in islam',
     }
   }
 
   if (slug === 'halal-investing') {
     return {
-      title: { absolute: 'Halal Investing — Stocks, Forex, Gold & Islamic Finance Guide | Arkans of Islam' },
-      description: 'Guide to halal investing — Shariah stock screening criteria, halal mutual funds, is forex trading halal, gold trading in Islam, margin trading, and income purification.',
+      title: { absolute: 'Halal Investing — Stocks, Forex, Gold & Islamic Finance' },
+      description: 'A guide to halal investing — Shariah stock screening, halal mutual funds, forex trading in Islam, gold trading rules, and income purification.',
       keywords: 'halal investing, stock market islam, forex trading in islam, halal stocks, mutual funds halal, gold trading in islam, halal investment, margin trading halal, islamically halal stock',
     }
   }
 
   if (slug === 'music-in-islam') {
     return {
-      title: { absolute: 'Is Music Halal or Haram in Islam? Scholarly Views & Evidence | Arkans of Islam' },
-      description: 'Is music halal or haram in Islam? An honest look at the scholarly debate — hadith evidence, the prohibition view, the permissibility view, areas of agreement, nasheeds, and practical guidance.',
+      title: { absolute: 'Is Music Halal or Haram in Islam? Scholarly Views' },
+      description: 'Is music halal or haram in Islam? An honest look at the scholarly debate — hadith evidence, both views, areas of agreement, and practical guidance.',
       keywords: 'music is haram, music halal in islam, is music haram, halal music, nasheeds, duff in islam, musical instruments islam, is listening to music a sin in islam',
     }
   }
@@ -110,9 +110,17 @@ export async function generateMetadata({ params }) {
 
   if (slug === 'dua-qunoot') {
     return {
-      title: 'Dua e Qunoot — Arabic Text, Translation & PDF Download',
-      description: 'Full Dua e Qunoot in Arabic with English translation, Urdu tarjuma, Roman transliteration, word-by-word meaning, and free PDF download. Learn how to recite it in Witr prayer.',
+      title: { absolute: 'Dua e Qunoot — Arabic Text, Translation & PDF Download' },
+      description: 'Full Dua e Qunoot in Arabic with English translation, Urdu tarjuma, transliteration, word-by-word meaning, and free PDF download for Witr prayer.',
       keywords: 'dua e qunoot, dua qunoot, dua e qunoot in english, dua e qunoot pdf, dua e qunoot urdu translation, witr ki dua, dua qunoot arabic',
+    }
+  }
+
+  if (slug === 'shahadah') {
+    return {
+      title: 'Shahadah — Islamic Declaration of Faith',
+      description: 'The Shahadah is the first pillar of Islam and the declaration of faith. Learn its Arabic words, English meaning, and significance in a Muslim’s daily life.',
+      keywords: 'shahadah, shahada, declaration of faith, first pillar of islam, kalma, testimony of faith, la ilaha illallah',
     }
   }
 

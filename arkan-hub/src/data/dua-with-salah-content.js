@@ -9,24 +9,10 @@ export const duaWithSalahContent = {
       slug: 'dua-qunoot',
       category: 'Essential Dua',
       desc: 'The essential dua recited with Witr prayer. Learn about Dua Qunoot, its meaning, benefits, and how to recite it.'
-    },
-    {
-      title: 'Duas after Fard Prayers',
-      slug: 'duas-after-fard',
-      category: 'Post-Prayer Duas',
-      desc: 'Authentic supplications recommended after the obligatory five daily prayers.'
-    },
-    {
-      title: 'Duas for Tashahhud',
-      slug: 'duas-tashahhud',
-      category: 'During Prayer',
-      desc: 'Duas and invocations during the sitting position (tashahhud) in prayer.'
-    },
-    {
-      title: 'Duas for Sujud',
-      slug: 'duas-sujud',
-      category: 'During Prayer',
-      desc: 'Supplications to make during prostration (sujud), the closest position to Allah.'
     }
+    // NOTE: 'duas-after-fard', 'duas-tashahhud', and 'duas-sujud' cards were
+    // removed because those pages are not built yet (they 404'd, causing broken
+    // internal links). Re-add them here once the corresponding resource pages
+    // exist under src/data + src/app/resource/[slug]/page.jsx and CONTENT_PAGES.
   ]
 }

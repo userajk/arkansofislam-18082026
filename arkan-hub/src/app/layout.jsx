@@ -4,13 +4,29 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export const metadata = {
+  metadataBase: new URL('https://www.arkansofislam.com'),
   title: {
     default: 'Arkans of Islam',
     template: '%s | Arkans of Islam',
   },
   description: 'A structured library of Islamic guides, duas, and resources covering the five pillars of Islam, daily worship, and Muslim family life.',
   openGraph: {
+    type: 'website',
     siteName: 'Arkans of Islam',
+    locale: 'en_US',
+    url: 'https://www.arkansofislam.com',
+    images: [
+      {
+        url: '/arkan-logo-2.png',
+        width: 384,
+        height: 384,
+        alt: 'Arkans of Islam',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary',
+    images: ['/arkan-logo-2.png'],
   },
   icons: {
     icon: [

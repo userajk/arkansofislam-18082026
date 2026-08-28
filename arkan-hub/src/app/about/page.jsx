@@ -4,7 +4,7 @@ import { BookIcon, DeviceIcon, ToolsIcon } from '../../components/Icons'
 
 export const metadata = {
   title: 'About',
-  description: 'Learn what Arkans of Islam is and how it helps you explore Islamic knowledge.',
+  description: 'Learn what Arkans of Islam is — a free, structured library of authentic Islamic guides, duas, calculators, and downloadable resources for everyday practice.',
 }
 
 const WHY_ICONS = [BookIcon, DeviceIcon, ToolsIcon]
